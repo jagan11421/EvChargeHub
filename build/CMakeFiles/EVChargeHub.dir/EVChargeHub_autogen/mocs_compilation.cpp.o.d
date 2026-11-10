@@ -1009,9 +1009,18 @@ CMakeFiles/EVChargeHub.dir/EVChargeHub_autogen/mocs_compilation.cpp.o: \
   /opt/homebrew/lib/QtCore.framework/Headers/qtmochelpers.h \
   /opt/homebrew/lib/QtCore.framework/Headers/qtmocconstants.h \
   /opt/homebrew/lib/QtCore.framework/Headers/q20algorithm.h \
+  /Users/rdx/Desktop/EVChargeHub/build/EVChargeHub_autogen/4PIRG7OLBM/moc_ChargingPointsPage.cpp \
+  /Users/rdx/Desktop/EVChargeHub/build/EVChargeHub_autogen/4PIRG7OLBM/../../../src/ui/pages/ChargingPointsPage.h \
+  /opt/homebrew/include/QtWidgets/QWidget \
+  /Users/rdx/Desktop/EVChargeHub/build/EVChargeHub_autogen/4PIRG7OLBM/../../../src/ui/pages/../../database/ChargingPointRepository.h \
+  /Users/rdx/Desktop/EVChargeHub/build/EVChargeHub_autogen/4PIRG7OLBM/../../../src/ui/pages/../../database/../models/ChargingPoint.h \
+  /opt/homebrew/include/QtCore/QString \
+  /opt/homebrew/include/QtCore/QList \
   /Users/rdx/Desktop/EVChargeHub/build/EVChargeHub_autogen/4PIRG7OLBM/moc_DashboardPage.cpp \
   /Users/rdx/Desktop/EVChargeHub/build/EVChargeHub_autogen/4PIRG7OLBM/../../../src/ui/pages/DashboardPage.h \
-  /opt/homebrew/include/QtWidgets/QWidget \
   /Users/rdx/Desktop/EVChargeHub/build/EVChargeHub_autogen/4PIRG7OLBM/moc_PlaceholderPage.cpp \
   /Users/rdx/Desktop/EVChargeHub/build/EVChargeHub_autogen/4PIRG7OLBM/../../../src/ui/pages/PlaceholderPage.h \
-  /opt/homebrew/include/QtCore/QString
+  /Users/rdx/Desktop/EVChargeHub/build/EVChargeHub_autogen/4PIRG7OLBM/moc_StationsPage.cpp \
+  /Users/rdx/Desktop/EVChargeHub/build/EVChargeHub_autogen/4PIRG7OLBM/../../../src/ui/pages/StationsPage.h \
+  /Users/rdx/Desktop/EVChargeHub/build/EVChargeHub_autogen/4PIRG7OLBM/../../../src/ui/pages/../../database/StationRepository.h \
+  /Users/rdx/Desktop/EVChargeHub/build/EVChargeHub_autogen/4PIRG7OLBM/../../../src/ui/pages/../../database/../models/Station.h

@@ -1,0 +1,60 @@
+
+# Build directories
+build/
+cmake-build-*/
+
+# Compiled binaries
+*.o
+*.obj
+*.a
+*.lib
+*.so
+*.dylib
+*.dll
+*.exe
+*.app/
+
+# CMake generated files
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+Makefile
+compile_commands.json
+
+# SQLite database files
+*.db
+*.sqlite
+*.sqlite3
+*.db-journal
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# VS Code
+.vscode/
+
+# Qt Creator
+*.pro.user
+*.pro.user.*
+*.qmlproject.user
+*.qbs.user
+CMakeLists.txt.user*
+.qtcreator/
+
+# Temporary files
+*.tmp
+*.log
+*.swp
+*~
+
+# Environment and secrets
+.env
+.env.*
+!.env.example
+
+# OS-specific files
+Thumbs.db
+Desktop.ini
+

@@ -842,13 +842,23 @@ EVChargeHub_autogen/timestamp: /Library/Developer/CommandLineTools/SDKs/MacOSX27
   CMakeFiles/4.4.5/CMakeCXXCompiler.cmake \
   CMakeFiles/4.4.5/CMakeSystem.cmake \
   EVChargeHub_autogen/moc_predefs.h \
+  /Users/rdx/Desktop/EVChargeHub/src/database/DatabaseManager.cpp \
+  /Users/rdx/Desktop/EVChargeHub/src/database/DatabaseManager.h \
+  /Users/rdx/Desktop/EVChargeHub/src/database/StationRepository.cpp \
+  /Users/rdx/Desktop/EVChargeHub/src/database/StationRepository.h \
   /Users/rdx/Desktop/EVChargeHub/src/main.cpp \
+  /Users/rdx/Desktop/EVChargeHub/src/models/Station.h \
   /Users/rdx/Desktop/EVChargeHub/src/ui/MainWindow.cpp \
   /Users/rdx/Desktop/EVChargeHub/src/ui/MainWindow.h \
   /Users/rdx/Desktop/EVChargeHub/src/ui/pages/DashboardPage.cpp \
   /Users/rdx/Desktop/EVChargeHub/src/ui/pages/DashboardPage.h \
+  /Users/rdx/Desktop/EVChargeHub/src/ui/pages/PlaceholderPage.cpp \
+  /Users/rdx/Desktop/EVChargeHub/src/ui/pages/PlaceholderPage.h \
+  /Users/rdx/Desktop/EVChargeHub/src/ui/pages/StationsPage.cpp \
+  /Users/rdx/Desktop/EVChargeHub/src/ui/pages/StationsPage.h \
+  /opt/homebrew/Cellar/qtbase/6.12.0_2/include/QtCore/QList \
+  /opt/homebrew/Cellar/qtbase/6.12.0_2/include/QtCore/QString \
   /opt/homebrew/Cellar/qtbase/6.12.0_2/include/QtWidgets/QMainWindow \
-  /opt/homebrew/Cellar/qtbase/6.12.0_2/include/QtWidgets/QStackedWidget \
   /opt/homebrew/Cellar/qtbase/6.12.0_2/include/QtWidgets/QWidget \
   /opt/homebrew/Cellar/qtbase/6.12.0_2/lib/QtCore.framework/Versions/A/Headers/q17memory.h \
   /opt/homebrew/Cellar/qtbase/6.12.0_2/lib/QtCore.framework/Versions/A/Headers/q20bit.h \
@@ -1004,10 +1014,8 @@ EVChargeHub_autogen/timestamp: /Library/Developer/CommandLineTools/SDKs/MacOSX27
   /opt/homebrew/Cellar/qtbase/6.12.0_2/lib/QtGui.framework/Versions/A/Headers/qtguiglobal.h \
   /opt/homebrew/Cellar/qtbase/6.12.0_2/lib/QtGui.framework/Versions/A/Headers/qtransform.h \
   /opt/homebrew/Cellar/qtbase/6.12.0_2/lib/QtGui.framework/Versions/A/Headers/qwindowdefs.h \
-  /opt/homebrew/Cellar/qtbase/6.12.0_2/lib/QtWidgets.framework/Versions/A/Headers/qframe.h \
   /opt/homebrew/Cellar/qtbase/6.12.0_2/lib/QtWidgets.framework/Versions/A/Headers/qmainwindow.h \
   /opt/homebrew/Cellar/qtbase/6.12.0_2/lib/QtWidgets.framework/Versions/A/Headers/qsizepolicy.h \
-  /opt/homebrew/Cellar/qtbase/6.12.0_2/lib/QtWidgets.framework/Versions/A/Headers/qstackedwidget.h \
   /opt/homebrew/Cellar/qtbase/6.12.0_2/lib/QtWidgets.framework/Versions/A/Headers/qtabwidget.h \
   /opt/homebrew/Cellar/qtbase/6.12.0_2/lib/QtWidgets.framework/Versions/A/Headers/qtwidgets-config.h \
   /opt/homebrew/Cellar/qtbase/6.12.0_2/lib/QtWidgets.framework/Versions/A/Headers/qtwidgetsexports.h \
@@ -1421,8 +1429,6 @@ EVChargeHub_autogen/timestamp: /Library/Developer/CommandLineTools/SDKs/MacOSX27
 
 /opt/homebrew/lib/cmake/Qt6Gui/Qt6QWebpPluginConfig.cmake:
 
-/opt/homebrew/lib/cmake/Qt6Gui/Qt6QWbmpPluginTargets-release.cmake:
-
 /opt/homebrew/lib/cmake/Qt6Gui/Qt6QWbmpPluginAdditionalTargetInfo.cmake:
 
 /opt/homebrew/lib/cmake/Qt6Gui/Qt6QVirtualKeyboardPluginTargets.cmake:
@@ -1504,12 +1510,6 @@ EVChargeHub_autogen/timestamp: /Library/Developer/CommandLineTools/SDKs/MacOSX27
 /opt/homebrew/lib/cmake/Qt6Gui/Qt6QCocoaIntegrationPluginAdditionalTargetInfo.cmake:
 
 /opt/homebrew/lib/cmake/Qt6Gui/Qt6GuiVersionlessAliasTargets.cmake:
-
-/opt/homebrew/lib/cmake/Qt6WidgetsTools/Qt6WidgetsToolsDependencies.cmake:
-
-/opt/homebrew/lib/cmake/Qt6Gui/Qt6GuiTargets-release.cmake:
-
-/opt/homebrew/lib/cmake/Qt6Gui/Qt6GuiAdditionalTargetInfo.cmake:
 
 /opt/homebrew/lib/cmake/Qt6Widgets/Qt6WidgetsTargets.cmake:
 
@@ -1663,8 +1663,6 @@ EVChargeHub_autogen/timestamp: /Library/Developer/CommandLineTools/SDKs/MacOSX27
 
 /opt/homebrew/Cellar/qtbase/6.12.0_2/lib/QtWidgets.framework/Versions/A/Headers/qtabwidget.h:
 
-/opt/homebrew/Cellar/qtbase/6.12.0_2/lib/QtWidgets.framework/Versions/A/Headers/qstackedwidget.h:
-
 /opt/homebrew/Cellar/qtbase/6.12.0_2/lib/QtWidgets.framework/Versions/A/Headers/qsizepolicy.h:
 
 /opt/homebrew/Cellar/qtbase/6.12.0_2/lib/QtGui.framework/Versions/A/Headers/qtransform.h:
@@ -1674,8 +1672,6 @@ EVChargeHub_autogen/timestamp: /Library/Developer/CommandLineTools/SDKs/MacOSX27
 /opt/homebrew/Cellar/qtbase/6.12.0_2/lib/QtGui.framework/Versions/A/Headers/qrgb.h:
 
 /opt/homebrew/Cellar/qtbase/6.12.0_2/lib/QtGui.framework/Versions/A/Headers/qpalette.h:
-
-/opt/homebrew/Cellar/qtbase/6.12.0_2/lib/QtGui.framework/Versions/A/Headers/qpaintdevice.h:
 
 /opt/homebrew/Cellar/qtbase/6.12.0_2/lib/QtGui.framework/Versions/A/Headers/qicon.h:
 
@@ -1879,6 +1875,22 @@ EVChargeHub_autogen/timestamp: /Library/Developer/CommandLineTools/SDKs/MacOSX27
 
 /opt/homebrew/Cellar/qtbase/6.12.0_2/include/QtWidgets/QWidget:
 
+/opt/homebrew/Cellar/qtbase/6.12.0_2/include/QtCore/QString:
+
+/Users/rdx/Desktop/EVChargeHub/src/ui/pages/StationsPage.h:
+
+/Users/rdx/Desktop/EVChargeHub/src/ui/pages/StationsPage.cpp:
+
+/opt/homebrew/lib/cmake/Qt6WidgetsTools/Qt6WidgetsToolsDependencies.cmake:
+
+/opt/homebrew/lib/cmake/Qt6Gui/Qt6GuiTargets-release.cmake:
+
+/opt/homebrew/lib/cmake/Qt6Gui/Qt6GuiAdditionalTargetInfo.cmake:
+
+/Users/rdx/Desktop/EVChargeHub/src/ui/pages/PlaceholderPage.h:
+
+/Users/rdx/Desktop/EVChargeHub/src/ui/pages/PlaceholderPage.cpp:
+
 /opt/homebrew/lib/cmake/Qt6/QtPublicSbomQtEntityHelpers.cmake:
 
 /Users/rdx/Desktop/EVChargeHub/src/ui/pages/DashboardPage.h:
@@ -1895,7 +1907,19 @@ EVChargeHub_autogen/timestamp: /Library/Developer/CommandLineTools/SDKs/MacOSX27
 
 /Users/rdx/Desktop/EVChargeHub/src/ui/MainWindow.h:
 
+/Users/rdx/Desktop/EVChargeHub/src/models/Station.h:
+
 /Users/rdx/Desktop/EVChargeHub/src/main.cpp:
+
+/opt/homebrew/Cellar/qtbase/6.12.0_2/lib/QtGui.framework/Versions/A/Headers/qpaintdevice.h:
+
+/Users/rdx/Desktop/EVChargeHub/src/database/StationRepository.cpp:
+
+/opt/homebrew/lib/cmake/Qt6Gui/Qt6QWbmpPluginTargets-release.cmake:
+
+/Users/rdx/Desktop/EVChargeHub/src/database/DatabaseManager.h:
+
+/Users/rdx/Desktop/EVChargeHub/src/database/DatabaseManager.cpp:
 
 EVChargeHub_autogen/moc_predefs.h:
 
@@ -2907,6 +2931,8 @@ CMakeFiles/4.4.5/CMakeSystem.cmake:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX27.2.sdk/usr/include/c++/v1/__concepts/invocable.h:
 
+/opt/homebrew/Cellar/qtbase/6.12.0_2/include/QtCore/QList:
+
 /Library/Developer/CommandLineTools/SDKs/MacOSX27.2.sdk/usr/include/c++/v1/__iterator/aliasing_iterator.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX27.2.sdk/usr/include/c++/v1/__math/copysign.h:
@@ -3651,8 +3677,6 @@ CMakeFiles/4.4.5/CMakeSystem.cmake:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX27.2.sdk/usr/include/c++/v1/__atomic/atomic_sync.h:
 
-/opt/homebrew/Cellar/qtbase/6.12.0_2/lib/QtWidgets.framework/Versions/A/Headers/qframe.h:
-
 /Library/Developer/CommandLineTools/SDKs/MacOSX27.2.sdk/usr/include/c++/v1/__utility/rel_ops.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX27.2.sdk/usr/include/c++/v1/__charconv/to_chars_result.h:
@@ -3688,8 +3712,6 @@ CMakeFiles/4.4.5/CMakeSystem.cmake:
 /Library/Developer/CommandLineTools/SDKs/MacOSX27.2.sdk/usr/include/c++/v1/__algorithm/min.h:
 
 /opt/homebrew/lib/cmake/Qt6Gui/Qt6QMinimalIntegrationPluginTargets.cmake:
-
-/opt/homebrew/Cellar/qtbase/6.12.0_2/include/QtWidgets/QStackedWidget:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX27.2.sdk/usr/include/c++/v1/__functional/operations.h:
 
@@ -3834,6 +3856,8 @@ CMakeFiles/4.4.5/CMakeCXXCompiler.cmake:
 /Library/Developer/CommandLineTools/SDKs/MacOSX27.2.sdk/usr/include/c++/v1/__algorithm/equal_range.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX27.2.sdk/usr/include/c++/v1/__math/logarithms.h:
+
+/Users/rdx/Desktop/EVChargeHub/src/database/StationRepository.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX27.2.sdk/usr/include/c++/v1/__algorithm/reverse.h:
 

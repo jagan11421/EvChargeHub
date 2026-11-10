@@ -8,19 +8,45 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 set(CMAKE_AUTOMOC ON)
 
-find_package(Qt6 REQUIRED COMPONENTS Widgets Sql)
+find_package(Qt6 REQUIRED COMPONENTS
+    Widgets
+    Sql
+)
 
 add_executable(EVChargeHub
+
     src/main.cpp
 
+    # Models
+    src/models/Station.h
+    src/models/ChargingPoint.h
+
+    # Database
+    src/database/DatabaseManager.h
+    src/database/DatabaseManager.cpp
+
+    src/database/StationRepository.h
+    src/database/StationRepository.cpp
+
+    src/database/ChargingPointRepository.h
+    src/database/ChargingPointRepository.cpp
+
+    # Main window
     src/ui/MainWindow.h
     src/ui/MainWindow.cpp
 
+    # Pages
     src/ui/pages/DashboardPage.h
     src/ui/pages/DashboardPage.cpp
 
     src/ui/pages/PlaceholderPage.h
     src/ui/pages/PlaceholderPage.cpp
+
+    src/ui/pages/StationsPage.h
+    src/ui/pages/StationsPage.cpp
+
+    src/ui/pages/ChargingPointsPage.h
+    src/ui/pages/ChargingPointsPage.cpp
 )
 
 target_include_directories(EVChargeHub PRIVATE src)

@@ -843,13 +843,23 @@
  /Users/rdx/Desktop/EVChargeHub/build/CMakeFiles/4.4.5/CMakeCXXCompiler.cmake
  /Users/rdx/Desktop/EVChargeHub/build/CMakeFiles/4.4.5/CMakeSystem.cmake
  /Users/rdx/Desktop/EVChargeHub/build/EVChargeHub_autogen/moc_predefs.h
+ /Users/rdx/Desktop/EVChargeHub/src/database/DatabaseManager.cpp
+ /Users/rdx/Desktop/EVChargeHub/src/database/DatabaseManager.h
+ /Users/rdx/Desktop/EVChargeHub/src/database/StationRepository.cpp
+ /Users/rdx/Desktop/EVChargeHub/src/database/StationRepository.h
  /Users/rdx/Desktop/EVChargeHub/src/main.cpp
+ /Users/rdx/Desktop/EVChargeHub/src/models/Station.h
  /Users/rdx/Desktop/EVChargeHub/src/ui/MainWindow.cpp
  /Users/rdx/Desktop/EVChargeHub/src/ui/MainWindow.h
  /Users/rdx/Desktop/EVChargeHub/src/ui/pages/DashboardPage.cpp
  /Users/rdx/Desktop/EVChargeHub/src/ui/pages/DashboardPage.h
+ /Users/rdx/Desktop/EVChargeHub/src/ui/pages/PlaceholderPage.cpp
+ /Users/rdx/Desktop/EVChargeHub/src/ui/pages/PlaceholderPage.h
+ /Users/rdx/Desktop/EVChargeHub/src/ui/pages/StationsPage.cpp
+ /Users/rdx/Desktop/EVChargeHub/src/ui/pages/StationsPage.h
+ /opt/homebrew/Cellar/qtbase/6.12.0_2/include/QtCore/QList
+ /opt/homebrew/Cellar/qtbase/6.12.0_2/include/QtCore/QString
  /opt/homebrew/Cellar/qtbase/6.12.0_2/include/QtWidgets/QMainWindow
- /opt/homebrew/Cellar/qtbase/6.12.0_2/include/QtWidgets/QStackedWidget
  /opt/homebrew/Cellar/qtbase/6.12.0_2/include/QtWidgets/QWidget
  /opt/homebrew/Cellar/qtbase/6.12.0_2/lib/QtCore.framework/Versions/A/Headers/q17memory.h
  /opt/homebrew/Cellar/qtbase/6.12.0_2/lib/QtCore.framework/Versions/A/Headers/q20bit.h
@@ -1005,10 +1015,8 @@
  /opt/homebrew/Cellar/qtbase/6.12.0_2/lib/QtGui.framework/Versions/A/Headers/qtguiglobal.h
  /opt/homebrew/Cellar/qtbase/6.12.0_2/lib/QtGui.framework/Versions/A/Headers/qtransform.h
  /opt/homebrew/Cellar/qtbase/6.12.0_2/lib/QtGui.framework/Versions/A/Headers/qwindowdefs.h
- /opt/homebrew/Cellar/qtbase/6.12.0_2/lib/QtWidgets.framework/Versions/A/Headers/qframe.h
  /opt/homebrew/Cellar/qtbase/6.12.0_2/lib/QtWidgets.framework/Versions/A/Headers/qmainwindow.h
  /opt/homebrew/Cellar/qtbase/6.12.0_2/lib/QtWidgets.framework/Versions/A/Headers/qsizepolicy.h
- /opt/homebrew/Cellar/qtbase/6.12.0_2/lib/QtWidgets.framework/Versions/A/Headers/qstackedwidget.h
  /opt/homebrew/Cellar/qtbase/6.12.0_2/lib/QtWidgets.framework/Versions/A/Headers/qtabwidget.h
  /opt/homebrew/Cellar/qtbase/6.12.0_2/lib/QtWidgets.framework/Versions/A/Headers/qtwidgets-config.h
  /opt/homebrew/Cellar/qtbase/6.12.0_2/lib/QtWidgets.framework/Versions/A/Headers/qtwidgetsexports.h

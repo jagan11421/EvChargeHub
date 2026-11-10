@@ -179,6 +179,78 @@ EVChargeHub_autogen/mocs_compilation.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/EVChargeHub.dir/build.make CMakeFiles/EVChargeHub.dir/EVChargeHub_autogen/mocs_compilation.cpp.s
 .PHONY : EVChargeHub_autogen/mocs_compilation.cpp.s
 
+src/database/ChargingPointRepository.o: src/database/ChargingPointRepository.cpp.o
+.PHONY : src/database/ChargingPointRepository.o
+
+# target to build an object file
+src/database/ChargingPointRepository.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/EVChargeHub.dir/build.make CMakeFiles/EVChargeHub.dir/src/database/ChargingPointRepository.cpp.o
+.PHONY : src/database/ChargingPointRepository.cpp.o
+
+src/database/ChargingPointRepository.i: src/database/ChargingPointRepository.cpp.i
+.PHONY : src/database/ChargingPointRepository.i
+
+# target to preprocess a source file
+src/database/ChargingPointRepository.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/EVChargeHub.dir/build.make CMakeFiles/EVChargeHub.dir/src/database/ChargingPointRepository.cpp.i
+.PHONY : src/database/ChargingPointRepository.cpp.i
+
+src/database/ChargingPointRepository.s: src/database/ChargingPointRepository.cpp.s
+.PHONY : src/database/ChargingPointRepository.s
+
+# target to generate assembly for a file
+src/database/ChargingPointRepository.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/EVChargeHub.dir/build.make CMakeFiles/EVChargeHub.dir/src/database/ChargingPointRepository.cpp.s
+.PHONY : src/database/ChargingPointRepository.cpp.s
+
+src/database/DatabaseManager.o: src/database/DatabaseManager.cpp.o
+.PHONY : src/database/DatabaseManager.o
+
+# target to build an object file
+src/database/DatabaseManager.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/EVChargeHub.dir/build.make CMakeFiles/EVChargeHub.dir/src/database/DatabaseManager.cpp.o
+.PHONY : src/database/DatabaseManager.cpp.o
+
+src/database/DatabaseManager.i: src/database/DatabaseManager.cpp.i
+.PHONY : src/database/DatabaseManager.i
+
+# target to preprocess a source file
+src/database/DatabaseManager.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/EVChargeHub.dir/build.make CMakeFiles/EVChargeHub.dir/src/database/DatabaseManager.cpp.i
+.PHONY : src/database/DatabaseManager.cpp.i
+
+src/database/DatabaseManager.s: src/database/DatabaseManager.cpp.s
+.PHONY : src/database/DatabaseManager.s
+
+# target to generate assembly for a file
+src/database/DatabaseManager.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/EVChargeHub.dir/build.make CMakeFiles/EVChargeHub.dir/src/database/DatabaseManager.cpp.s
+.PHONY : src/database/DatabaseManager.cpp.s
+
+src/database/StationRepository.o: src/database/StationRepository.cpp.o
+.PHONY : src/database/StationRepository.o
+
+# target to build an object file
+src/database/StationRepository.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/EVChargeHub.dir/build.make CMakeFiles/EVChargeHub.dir/src/database/StationRepository.cpp.o
+.PHONY : src/database/StationRepository.cpp.o
+
+src/database/StationRepository.i: src/database/StationRepository.cpp.i
+.PHONY : src/database/StationRepository.i
+
+# target to preprocess a source file
+src/database/StationRepository.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/EVChargeHub.dir/build.make CMakeFiles/EVChargeHub.dir/src/database/StationRepository.cpp.i
+.PHONY : src/database/StationRepository.cpp.i
+
+src/database/StationRepository.s: src/database/StationRepository.cpp.s
+.PHONY : src/database/StationRepository.s
+
+# target to generate assembly for a file
+src/database/StationRepository.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/EVChargeHub.dir/build.make CMakeFiles/EVChargeHub.dir/src/database/StationRepository.cpp.s
+.PHONY : src/database/StationRepository.cpp.s
+
 src/main.o: src/main.cpp.o
 .PHONY : src/main.o
 
@@ -226,6 +298,30 @@ src/ui/MainWindow.s: src/ui/MainWindow.cpp.s
 src/ui/MainWindow.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/EVChargeHub.dir/build.make CMakeFiles/EVChargeHub.dir/src/ui/MainWindow.cpp.s
 .PHONY : src/ui/MainWindow.cpp.s
+
+src/ui/pages/ChargingPointsPage.o: src/ui/pages/ChargingPointsPage.cpp.o
+.PHONY : src/ui/pages/ChargingPointsPage.o
+
+# target to build an object file
+src/ui/pages/ChargingPointsPage.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/EVChargeHub.dir/build.make CMakeFiles/EVChargeHub.dir/src/ui/pages/ChargingPointsPage.cpp.o
+.PHONY : src/ui/pages/ChargingPointsPage.cpp.o
+
+src/ui/pages/ChargingPointsPage.i: src/ui/pages/ChargingPointsPage.cpp.i
+.PHONY : src/ui/pages/ChargingPointsPage.i
+
+# target to preprocess a source file
+src/ui/pages/ChargingPointsPage.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/EVChargeHub.dir/build.make CMakeFiles/EVChargeHub.dir/src/ui/pages/ChargingPointsPage.cpp.i
+.PHONY : src/ui/pages/ChargingPointsPage.cpp.i
+
+src/ui/pages/ChargingPointsPage.s: src/ui/pages/ChargingPointsPage.cpp.s
+.PHONY : src/ui/pages/ChargingPointsPage.s
+
+# target to generate assembly for a file
+src/ui/pages/ChargingPointsPage.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/EVChargeHub.dir/build.make CMakeFiles/EVChargeHub.dir/src/ui/pages/ChargingPointsPage.cpp.s
+.PHONY : src/ui/pages/ChargingPointsPage.cpp.s
 
 src/ui/pages/DashboardPage.o: src/ui/pages/DashboardPage.cpp.o
 .PHONY : src/ui/pages/DashboardPage.o
@@ -275,6 +371,30 @@ src/ui/pages/PlaceholderPage.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/EVChargeHub.dir/build.make CMakeFiles/EVChargeHub.dir/src/ui/pages/PlaceholderPage.cpp.s
 .PHONY : src/ui/pages/PlaceholderPage.cpp.s
 
+src/ui/pages/StationsPage.o: src/ui/pages/StationsPage.cpp.o
+.PHONY : src/ui/pages/StationsPage.o
+
+# target to build an object file
+src/ui/pages/StationsPage.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/EVChargeHub.dir/build.make CMakeFiles/EVChargeHub.dir/src/ui/pages/StationsPage.cpp.o
+.PHONY : src/ui/pages/StationsPage.cpp.o
+
+src/ui/pages/StationsPage.i: src/ui/pages/StationsPage.cpp.i
+.PHONY : src/ui/pages/StationsPage.i
+
+# target to preprocess a source file
+src/ui/pages/StationsPage.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/EVChargeHub.dir/build.make CMakeFiles/EVChargeHub.dir/src/ui/pages/StationsPage.cpp.i
+.PHONY : src/ui/pages/StationsPage.cpp.i
+
+src/ui/pages/StationsPage.s: src/ui/pages/StationsPage.cpp.s
+.PHONY : src/ui/pages/StationsPage.s
+
+# target to generate assembly for a file
+src/ui/pages/StationsPage.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/EVChargeHub.dir/build.make CMakeFiles/EVChargeHub.dir/src/ui/pages/StationsPage.cpp.s
+.PHONY : src/ui/pages/StationsPage.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -289,18 +409,33 @@ help:
 	@echo "... EVChargeHub_autogen/mocs_compilation.o"
 	@echo "... EVChargeHub_autogen/mocs_compilation.i"
 	@echo "... EVChargeHub_autogen/mocs_compilation.s"
+	@echo "... src/database/ChargingPointRepository.o"
+	@echo "... src/database/ChargingPointRepository.i"
+	@echo "... src/database/ChargingPointRepository.s"
+	@echo "... src/database/DatabaseManager.o"
+	@echo "... src/database/DatabaseManager.i"
+	@echo "... src/database/DatabaseManager.s"
+	@echo "... src/database/StationRepository.o"
+	@echo "... src/database/StationRepository.i"
+	@echo "... src/database/StationRepository.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
 	@echo "... src/ui/MainWindow.o"
 	@echo "... src/ui/MainWindow.i"
 	@echo "... src/ui/MainWindow.s"
+	@echo "... src/ui/pages/ChargingPointsPage.o"
+	@echo "... src/ui/pages/ChargingPointsPage.i"
+	@echo "... src/ui/pages/ChargingPointsPage.s"
 	@echo "... src/ui/pages/DashboardPage.o"
 	@echo "... src/ui/pages/DashboardPage.i"
 	@echo "... src/ui/pages/DashboardPage.s"
 	@echo "... src/ui/pages/PlaceholderPage.o"
 	@echo "... src/ui/pages/PlaceholderPage.i"
 	@echo "... src/ui/pages/PlaceholderPage.s"
+	@echo "... src/ui/pages/StationsPage.o"
+	@echo "... src/ui/pages/StationsPage.i"
+	@echo "... src/ui/pages/StationsPage.s"
 .PHONY : help
 
 

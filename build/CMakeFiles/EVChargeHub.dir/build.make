@@ -106,10 +106,52 @@ CMakeFiles/EVChargeHub.dir/src/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/EVChargeHub.dir/src/main.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/rdx/Desktop/EVChargeHub/src/main.cpp -o CMakeFiles/EVChargeHub.dir/src/main.cpp.s
 
+CMakeFiles/EVChargeHub.dir/src/database/DatabaseManager.cpp.o: CMakeFiles/EVChargeHub.dir/flags.make
+CMakeFiles/EVChargeHub.dir/src/database/DatabaseManager.cpp.o: /Users/rdx/Desktop/EVChargeHub/src/database/DatabaseManager.cpp
+CMakeFiles/EVChargeHub.dir/src/database/DatabaseManager.cpp.o: CMakeFiles/EVChargeHub.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/rdx/Desktop/EVChargeHub/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/EVChargeHub.dir/src/database/DatabaseManager.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/EVChargeHub.dir/src/database/DatabaseManager.cpp.o -MF CMakeFiles/EVChargeHub.dir/src/database/DatabaseManager.cpp.o.d -o CMakeFiles/EVChargeHub.dir/src/database/DatabaseManager.cpp.o -c /Users/rdx/Desktop/EVChargeHub/src/database/DatabaseManager.cpp
+
+CMakeFiles/EVChargeHub.dir/src/database/DatabaseManager.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/EVChargeHub.dir/src/database/DatabaseManager.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/rdx/Desktop/EVChargeHub/src/database/DatabaseManager.cpp > CMakeFiles/EVChargeHub.dir/src/database/DatabaseManager.cpp.i
+
+CMakeFiles/EVChargeHub.dir/src/database/DatabaseManager.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/EVChargeHub.dir/src/database/DatabaseManager.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/rdx/Desktop/EVChargeHub/src/database/DatabaseManager.cpp -o CMakeFiles/EVChargeHub.dir/src/database/DatabaseManager.cpp.s
+
+CMakeFiles/EVChargeHub.dir/src/database/StationRepository.cpp.o: CMakeFiles/EVChargeHub.dir/flags.make
+CMakeFiles/EVChargeHub.dir/src/database/StationRepository.cpp.o: /Users/rdx/Desktop/EVChargeHub/src/database/StationRepository.cpp
+CMakeFiles/EVChargeHub.dir/src/database/StationRepository.cpp.o: CMakeFiles/EVChargeHub.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/rdx/Desktop/EVChargeHub/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/EVChargeHub.dir/src/database/StationRepository.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/EVChargeHub.dir/src/database/StationRepository.cpp.o -MF CMakeFiles/EVChargeHub.dir/src/database/StationRepository.cpp.o.d -o CMakeFiles/EVChargeHub.dir/src/database/StationRepository.cpp.o -c /Users/rdx/Desktop/EVChargeHub/src/database/StationRepository.cpp
+
+CMakeFiles/EVChargeHub.dir/src/database/StationRepository.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/EVChargeHub.dir/src/database/StationRepository.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/rdx/Desktop/EVChargeHub/src/database/StationRepository.cpp > CMakeFiles/EVChargeHub.dir/src/database/StationRepository.cpp.i
+
+CMakeFiles/EVChargeHub.dir/src/database/StationRepository.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/EVChargeHub.dir/src/database/StationRepository.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/rdx/Desktop/EVChargeHub/src/database/StationRepository.cpp -o CMakeFiles/EVChargeHub.dir/src/database/StationRepository.cpp.s
+
+CMakeFiles/EVChargeHub.dir/src/database/ChargingPointRepository.cpp.o: CMakeFiles/EVChargeHub.dir/flags.make
+CMakeFiles/EVChargeHub.dir/src/database/ChargingPointRepository.cpp.o: /Users/rdx/Desktop/EVChargeHub/src/database/ChargingPointRepository.cpp
+CMakeFiles/EVChargeHub.dir/src/database/ChargingPointRepository.cpp.o: CMakeFiles/EVChargeHub.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/rdx/Desktop/EVChargeHub/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/EVChargeHub.dir/src/database/ChargingPointRepository.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/EVChargeHub.dir/src/database/ChargingPointRepository.cpp.o -MF CMakeFiles/EVChargeHub.dir/src/database/ChargingPointRepository.cpp.o.d -o CMakeFiles/EVChargeHub.dir/src/database/ChargingPointRepository.cpp.o -c /Users/rdx/Desktop/EVChargeHub/src/database/ChargingPointRepository.cpp
+
+CMakeFiles/EVChargeHub.dir/src/database/ChargingPointRepository.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/EVChargeHub.dir/src/database/ChargingPointRepository.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/rdx/Desktop/EVChargeHub/src/database/ChargingPointRepository.cpp > CMakeFiles/EVChargeHub.dir/src/database/ChargingPointRepository.cpp.i
+
+CMakeFiles/EVChargeHub.dir/src/database/ChargingPointRepository.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/EVChargeHub.dir/src/database/ChargingPointRepository.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/rdx/Desktop/EVChargeHub/src/database/ChargingPointRepository.cpp -o CMakeFiles/EVChargeHub.dir/src/database/ChargingPointRepository.cpp.s
+
 CMakeFiles/EVChargeHub.dir/src/ui/MainWindow.cpp.o: CMakeFiles/EVChargeHub.dir/flags.make
 CMakeFiles/EVChargeHub.dir/src/ui/MainWindow.cpp.o: /Users/rdx/Desktop/EVChargeHub/src/ui/MainWindow.cpp
 CMakeFiles/EVChargeHub.dir/src/ui/MainWindow.cpp.o: CMakeFiles/EVChargeHub.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/rdx/Desktop/EVChargeHub/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/EVChargeHub.dir/src/ui/MainWindow.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/rdx/Desktop/EVChargeHub/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/EVChargeHub.dir/src/ui/MainWindow.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/EVChargeHub.dir/src/ui/MainWindow.cpp.o -MF CMakeFiles/EVChargeHub.dir/src/ui/MainWindow.cpp.o.d -o CMakeFiles/EVChargeHub.dir/src/ui/MainWindow.cpp.o -c /Users/rdx/Desktop/EVChargeHub/src/ui/MainWindow.cpp
 
 CMakeFiles/EVChargeHub.dir/src/ui/MainWindow.cpp.i: cmake_force
@@ -123,7 +165,7 @@ CMakeFiles/EVChargeHub.dir/src/ui/MainWindow.cpp.s: cmake_force
 CMakeFiles/EVChargeHub.dir/src/ui/pages/DashboardPage.cpp.o: CMakeFiles/EVChargeHub.dir/flags.make
 CMakeFiles/EVChargeHub.dir/src/ui/pages/DashboardPage.cpp.o: /Users/rdx/Desktop/EVChargeHub/src/ui/pages/DashboardPage.cpp
 CMakeFiles/EVChargeHub.dir/src/ui/pages/DashboardPage.cpp.o: CMakeFiles/EVChargeHub.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/rdx/Desktop/EVChargeHub/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/EVChargeHub.dir/src/ui/pages/DashboardPage.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/rdx/Desktop/EVChargeHub/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/EVChargeHub.dir/src/ui/pages/DashboardPage.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/EVChargeHub.dir/src/ui/pages/DashboardPage.cpp.o -MF CMakeFiles/EVChargeHub.dir/src/ui/pages/DashboardPage.cpp.o.d -o CMakeFiles/EVChargeHub.dir/src/ui/pages/DashboardPage.cpp.o -c /Users/rdx/Desktop/EVChargeHub/src/ui/pages/DashboardPage.cpp
 
 CMakeFiles/EVChargeHub.dir/src/ui/pages/DashboardPage.cpp.i: cmake_force
@@ -137,7 +179,7 @@ CMakeFiles/EVChargeHub.dir/src/ui/pages/DashboardPage.cpp.s: cmake_force
 CMakeFiles/EVChargeHub.dir/src/ui/pages/PlaceholderPage.cpp.o: CMakeFiles/EVChargeHub.dir/flags.make
 CMakeFiles/EVChargeHub.dir/src/ui/pages/PlaceholderPage.cpp.o: /Users/rdx/Desktop/EVChargeHub/src/ui/pages/PlaceholderPage.cpp
 CMakeFiles/EVChargeHub.dir/src/ui/pages/PlaceholderPage.cpp.o: CMakeFiles/EVChargeHub.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/rdx/Desktop/EVChargeHub/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/EVChargeHub.dir/src/ui/pages/PlaceholderPage.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/rdx/Desktop/EVChargeHub/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/EVChargeHub.dir/src/ui/pages/PlaceholderPage.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/EVChargeHub.dir/src/ui/pages/PlaceholderPage.cpp.o -MF CMakeFiles/EVChargeHub.dir/src/ui/pages/PlaceholderPage.cpp.o.d -o CMakeFiles/EVChargeHub.dir/src/ui/pages/PlaceholderPage.cpp.o -c /Users/rdx/Desktop/EVChargeHub/src/ui/pages/PlaceholderPage.cpp
 
 CMakeFiles/EVChargeHub.dir/src/ui/pages/PlaceholderPage.cpp.i: cmake_force
@@ -148,29 +190,67 @@ CMakeFiles/EVChargeHub.dir/src/ui/pages/PlaceholderPage.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/EVChargeHub.dir/src/ui/pages/PlaceholderPage.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/rdx/Desktop/EVChargeHub/src/ui/pages/PlaceholderPage.cpp -o CMakeFiles/EVChargeHub.dir/src/ui/pages/PlaceholderPage.cpp.s
 
+CMakeFiles/EVChargeHub.dir/src/ui/pages/StationsPage.cpp.o: CMakeFiles/EVChargeHub.dir/flags.make
+CMakeFiles/EVChargeHub.dir/src/ui/pages/StationsPage.cpp.o: /Users/rdx/Desktop/EVChargeHub/src/ui/pages/StationsPage.cpp
+CMakeFiles/EVChargeHub.dir/src/ui/pages/StationsPage.cpp.o: CMakeFiles/EVChargeHub.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/rdx/Desktop/EVChargeHub/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/EVChargeHub.dir/src/ui/pages/StationsPage.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/EVChargeHub.dir/src/ui/pages/StationsPage.cpp.o -MF CMakeFiles/EVChargeHub.dir/src/ui/pages/StationsPage.cpp.o.d -o CMakeFiles/EVChargeHub.dir/src/ui/pages/StationsPage.cpp.o -c /Users/rdx/Desktop/EVChargeHub/src/ui/pages/StationsPage.cpp
+
+CMakeFiles/EVChargeHub.dir/src/ui/pages/StationsPage.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/EVChargeHub.dir/src/ui/pages/StationsPage.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/rdx/Desktop/EVChargeHub/src/ui/pages/StationsPage.cpp > CMakeFiles/EVChargeHub.dir/src/ui/pages/StationsPage.cpp.i
+
+CMakeFiles/EVChargeHub.dir/src/ui/pages/StationsPage.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/EVChargeHub.dir/src/ui/pages/StationsPage.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/rdx/Desktop/EVChargeHub/src/ui/pages/StationsPage.cpp -o CMakeFiles/EVChargeHub.dir/src/ui/pages/StationsPage.cpp.s
+
+CMakeFiles/EVChargeHub.dir/src/ui/pages/ChargingPointsPage.cpp.o: CMakeFiles/EVChargeHub.dir/flags.make
+CMakeFiles/EVChargeHub.dir/src/ui/pages/ChargingPointsPage.cpp.o: /Users/rdx/Desktop/EVChargeHub/src/ui/pages/ChargingPointsPage.cpp
+CMakeFiles/EVChargeHub.dir/src/ui/pages/ChargingPointsPage.cpp.o: CMakeFiles/EVChargeHub.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/rdx/Desktop/EVChargeHub/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/EVChargeHub.dir/src/ui/pages/ChargingPointsPage.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/EVChargeHub.dir/src/ui/pages/ChargingPointsPage.cpp.o -MF CMakeFiles/EVChargeHub.dir/src/ui/pages/ChargingPointsPage.cpp.o.d -o CMakeFiles/EVChargeHub.dir/src/ui/pages/ChargingPointsPage.cpp.o -c /Users/rdx/Desktop/EVChargeHub/src/ui/pages/ChargingPointsPage.cpp
+
+CMakeFiles/EVChargeHub.dir/src/ui/pages/ChargingPointsPage.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/EVChargeHub.dir/src/ui/pages/ChargingPointsPage.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/rdx/Desktop/EVChargeHub/src/ui/pages/ChargingPointsPage.cpp > CMakeFiles/EVChargeHub.dir/src/ui/pages/ChargingPointsPage.cpp.i
+
+CMakeFiles/EVChargeHub.dir/src/ui/pages/ChargingPointsPage.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/EVChargeHub.dir/src/ui/pages/ChargingPointsPage.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/rdx/Desktop/EVChargeHub/src/ui/pages/ChargingPointsPage.cpp -o CMakeFiles/EVChargeHub.dir/src/ui/pages/ChargingPointsPage.cpp.s
+
 # Object files for target EVChargeHub
 EVChargeHub_OBJECTS = \
 "CMakeFiles/EVChargeHub.dir/EVChargeHub_autogen/mocs_compilation.cpp.o" \
 "CMakeFiles/EVChargeHub.dir/src/main.cpp.o" \
+"CMakeFiles/EVChargeHub.dir/src/database/DatabaseManager.cpp.o" \
+"CMakeFiles/EVChargeHub.dir/src/database/StationRepository.cpp.o" \
+"CMakeFiles/EVChargeHub.dir/src/database/ChargingPointRepository.cpp.o" \
 "CMakeFiles/EVChargeHub.dir/src/ui/MainWindow.cpp.o" \
 "CMakeFiles/EVChargeHub.dir/src/ui/pages/DashboardPage.cpp.o" \
-"CMakeFiles/EVChargeHub.dir/src/ui/pages/PlaceholderPage.cpp.o"
+"CMakeFiles/EVChargeHub.dir/src/ui/pages/PlaceholderPage.cpp.o" \
+"CMakeFiles/EVChargeHub.dir/src/ui/pages/StationsPage.cpp.o" \
+"CMakeFiles/EVChargeHub.dir/src/ui/pages/ChargingPointsPage.cpp.o"
 
 # External object files for target EVChargeHub
 EVChargeHub_EXTERNAL_OBJECTS =
 
 EVChargeHub: CMakeFiles/EVChargeHub.dir/EVChargeHub_autogen/mocs_compilation.cpp.o
 EVChargeHub: CMakeFiles/EVChargeHub.dir/src/main.cpp.o
+EVChargeHub: CMakeFiles/EVChargeHub.dir/src/database/DatabaseManager.cpp.o
+EVChargeHub: CMakeFiles/EVChargeHub.dir/src/database/StationRepository.cpp.o
+EVChargeHub: CMakeFiles/EVChargeHub.dir/src/database/ChargingPointRepository.cpp.o
 EVChargeHub: CMakeFiles/EVChargeHub.dir/src/ui/MainWindow.cpp.o
 EVChargeHub: CMakeFiles/EVChargeHub.dir/src/ui/pages/DashboardPage.cpp.o
 EVChargeHub: CMakeFiles/EVChargeHub.dir/src/ui/pages/PlaceholderPage.cpp.o
+EVChargeHub: CMakeFiles/EVChargeHub.dir/src/ui/pages/StationsPage.cpp.o
+EVChargeHub: CMakeFiles/EVChargeHub.dir/src/ui/pages/ChargingPointsPage.cpp.o
 EVChargeHub: CMakeFiles/EVChargeHub.dir/build.make
 EVChargeHub: /opt/homebrew/lib/QtWidgets.framework/Versions/A/QtWidgets
 EVChargeHub: /opt/homebrew/lib/QtSql.framework/Versions/A/QtSql
 EVChargeHub: /opt/homebrew/lib/QtGui.framework/Versions/A/QtGui
 EVChargeHub: /opt/homebrew/lib/QtCore.framework/Versions/A/QtCore
 EVChargeHub: CMakeFiles/EVChargeHub.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/rdx/Desktop/EVChargeHub/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable EVChargeHub"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/rdx/Desktop/EVChargeHub/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Linking CXX executable EVChargeHub"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/EVChargeHub.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

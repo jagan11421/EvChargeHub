@@ -417,9 +417,45 @@
 	"HEADERS" : 
 	[
 		[
+			"/Users/rdx/Desktop/EVChargeHub/src/database/ChargingPointRepository.h",
+			"Mu",
+			"M7KQ2GL7XF/moc_ChargingPointRepository.cpp",
+			null
+		],
+		[
+			"/Users/rdx/Desktop/EVChargeHub/src/database/DatabaseManager.h",
+			"Mu",
+			"M7KQ2GL7XF/moc_DatabaseManager.cpp",
+			null
+		],
+		[
+			"/Users/rdx/Desktop/EVChargeHub/src/database/StationRepository.h",
+			"Mu",
+			"M7KQ2GL7XF/moc_StationRepository.cpp",
+			null
+		],
+		[
+			"/Users/rdx/Desktop/EVChargeHub/src/models/ChargingPoint.h",
+			"Mu",
+			"M4YTXQ7V2H/moc_ChargingPoint.cpp",
+			null
+		],
+		[
+			"/Users/rdx/Desktop/EVChargeHub/src/models/Station.h",
+			"Mu",
+			"M4YTXQ7V2H/moc_Station.cpp",
+			null
+		],
+		[
 			"/Users/rdx/Desktop/EVChargeHub/src/ui/MainWindow.h",
 			"Mu",
 			"YPKJ5OE7LN/moc_MainWindow.cpp",
+			null
+		],
+		[
+			"/Users/rdx/Desktop/EVChargeHub/src/ui/pages/ChargingPointsPage.h",
+			"Mu",
+			"4PIRG7OLBM/moc_ChargingPointsPage.cpp",
 			null
 		],
 		[
@@ -432,6 +468,12 @@
 			"/Users/rdx/Desktop/EVChargeHub/src/ui/pages/PlaceholderPage.h",
 			"Mu",
 			"4PIRG7OLBM/moc_PlaceholderPage.cpp",
+			null
+		],
+		[
+			"/Users/rdx/Desktop/EVChargeHub/src/ui/pages/StationsPage.h",
+			"Mu",
+			"4PIRG7OLBM/moc_StationsPage.cpp",
 			null
 		]
 	],
@@ -503,8 +545,28 @@
 	"SETTINGS_FILE" : "/Users/rdx/Desktop/EVChargeHub/build/CMakeFiles/EVChargeHub_autogen.dir/AutogenUsed.txt",
 	"SOURCES" : 
 	[
+		[
+			"/Users/rdx/Desktop/EVChargeHub/src/database/ChargingPointRepository.cpp",
+			"Mu",
+			null
+		],
+		[
+			"/Users/rdx/Desktop/EVChargeHub/src/database/DatabaseManager.cpp",
+			"Mu",
+			null
+		],
+		[
+			"/Users/rdx/Desktop/EVChargeHub/src/database/StationRepository.cpp",
+			"Mu",
+			null
+		],
 		[ "/Users/rdx/Desktop/EVChargeHub/src/main.cpp", "Mu", null ],
 		[ "/Users/rdx/Desktop/EVChargeHub/src/ui/MainWindow.cpp", "Mu", null ],
+		[
+			"/Users/rdx/Desktop/EVChargeHub/src/ui/pages/ChargingPointsPage.cpp",
+			"Mu",
+			null
+		],
 		[
 			"/Users/rdx/Desktop/EVChargeHub/src/ui/pages/DashboardPage.cpp",
 			"Mu",
@@ -512,6 +574,11 @@
 		],
 		[
 			"/Users/rdx/Desktop/EVChargeHub/src/ui/pages/PlaceholderPage.cpp",
+			"Mu",
+			null
+		],
+		[
+			"/Users/rdx/Desktop/EVChargeHub/src/ui/pages/StationsPage.cpp",
 			"Mu",
 			null
 		]

@@ -11,7 +11,8 @@
 #include <QLabel>
 #include <QStackedWidget>
 #include <QButtonGroup>
-
+#include "pages/StationsPage.h"
+#include "pages/ChargingPointsPage.h"
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
 {
@@ -101,13 +102,14 @@ void MainWindow::setupUI()
     navGroup->setExclusive(true);
 
     QStringList menuItems = {
-        "Dashboard",
-        "Stations",
-        "Vehicles",
-        "Bookings",
-        "Charging Sessions",
-        "Payments",
-        "Reports"
+    "Dashboard",
+    "Stations",
+    "Charging Points",
+    "Vehicles",
+    "Bookings",
+    "Charging Sessions",
+    "Payments",
+    "Reports"
     };
 
     for (int i = 0; i < menuItems.size(); i++)
@@ -125,10 +127,8 @@ void MainWindow::setupUI()
 
     pages->addWidget(new DashboardPage);
 
-    pages->addWidget(
-        new PlaceholderPage("Stations")
-    );
-
+    pages->addWidget(new StationsPage);
+    pages->addWidget(new ChargingPointsPage);
     pages->addWidget(
         new PlaceholderPage("Vehicles")
     );

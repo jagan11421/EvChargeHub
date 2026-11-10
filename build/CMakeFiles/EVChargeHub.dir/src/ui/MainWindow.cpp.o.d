@@ -1028,4 +1028,11 @@ CMakeFiles/EVChargeHub.dir/src/ui/MainWindow.cpp.o: \
   /opt/homebrew/include/QtWidgets/QStackedWidget \
   /opt/homebrew/lib/QtWidgets.framework/Headers/qstackedwidget.h \
   /opt/homebrew/include/QtWidgets/QButtonGroup \
-  /opt/homebrew/lib/QtWidgets.framework/Headers/qbuttongroup.h
+  /opt/homebrew/lib/QtWidgets.framework/Headers/qbuttongroup.h \
+  /Users/rdx/Desktop/EVChargeHub/src/ui/pages/StationsPage.h \
+  /Users/rdx/Desktop/EVChargeHub/src/ui/pages/../../database/StationRepository.h \
+  /Users/rdx/Desktop/EVChargeHub/src/ui/pages/../../database/../models/Station.h \
+  /opt/homebrew/include/QtCore/QList \
+  /Users/rdx/Desktop/EVChargeHub/src/ui/pages/ChargingPointsPage.h \
+  /Users/rdx/Desktop/EVChargeHub/src/ui/pages/../../database/ChargingPointRepository.h \
+  /Users/rdx/Desktop/EVChargeHub/src/ui/pages/../../database/../models/ChargingPoint.h

@@ -1003,9 +1003,9 @@ CMakeFiles/EVChargeHub.dir/src/main.cpp.o: \
   /opt/homebrew/lib/QtCore.framework/Headers/qvarlengtharray.h \
   /opt/homebrew/lib/QtCore.framework/Headers/qalloc.h \
   /opt/homebrew/lib/QtGui.framework/Headers/qguiapplication_platform.h \
-  /Users/rdx/Desktop/EVChargeHub/src/ui/MainWindow.h \
-  /opt/homebrew/include/QtWidgets/QMainWindow \
-  /opt/homebrew/lib/QtWidgets.framework/Headers/qmainwindow.h \
+  /opt/homebrew/include/QtWidgets/QMessageBox \
+  /opt/homebrew/lib/QtWidgets.framework/Headers/qmessagebox.h \
+  /opt/homebrew/lib/QtWidgets.framework/Headers/qdialog.h \
   /opt/homebrew/lib/QtWidgets.framework/Headers/qwidget.h \
   /opt/homebrew/lib/QtGui.framework/Headers/qaction.h \
   /opt/homebrew/lib/QtGui.framework/Headers/qkeysequence.h \
@@ -1018,4 +1018,10 @@ CMakeFiles/EVChargeHub.dir/src/main.cpp.o: \
   /opt/homebrew/lib/QtGui.framework/Headers/qfontinfo.h \
   /opt/homebrew/lib/QtGui.framework/Headers/qfontvariableaxis.h \
   /opt/homebrew/lib/QtWidgets.framework/Headers/qsizepolicy.h \
-  /opt/homebrew/lib/QtWidgets.framework/Headers/qtabwidget.h
+  /opt/homebrew/lib/QtWidgets.framework/Headers/qdialogbuttonbox.h \
+  /Users/rdx/Desktop/EVChargeHub/src/ui/MainWindow.h \
+  /opt/homebrew/include/QtWidgets/QMainWindow \
+  /opt/homebrew/lib/QtWidgets.framework/Headers/qmainwindow.h \
+  /opt/homebrew/lib/QtWidgets.framework/Headers/qtabwidget.h \
+  /Users/rdx/Desktop/EVChargeHub/src/database/DatabaseManager.h \
+  /opt/homebrew/include/QtCore/QString
