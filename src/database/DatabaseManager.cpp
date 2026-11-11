@@ -7,6 +7,7 @@
 #include <QStandardPaths>
 #include <QDir>
 
+
 QString DatabaseManager::databasePath()
 {
     QString directory =
@@ -125,6 +126,23 @@ bool DatabaseManager::initialize(QString *error)
 
         return false;
     }
-
+    QSqlQuery vehicleQuery(db);
+    if (!vehicleQuery.exec(R"(
+        CREATE TABLE IF NOT EXISTS vehicles (
+            vehicle_id INTEGER PRIMARY KEY AUTOINCREMENT,
+            owner_name TEXT NOT NULL,
+            registration_number TEXT NOT NULL UNIQUE,
+            brand TEXT NOT NULL,
+            model TEXT NOT NULL,
+            battery_capacity REAL NOT NULL
+                CHECK(battery_capacity > 0),
+            connector_type TEXT NOT NULL
+                CHECK(connector_type IN ('TYPE1', 'TYPE2', 'CCS', 'CHADEMO'))
+        )
+    )")) {
+        if (error)
+            *error = vehicleQuery.lastError().text();
+        return false;
+    }
     return true;
 }
