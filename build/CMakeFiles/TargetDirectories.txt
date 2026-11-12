@@ -1,5 +1,0 @@
-/home/death/Desktop/EvChargeHub/build/CMakeFiles/EVChargeHub.dir
-/home/death/Desktop/EvChargeHub/build/CMakeFiles/edit_cache.dir
-/home/death/Desktop/EvChargeHub/build/CMakeFiles/rebuild_cache.dir
-/home/death/Desktop/EvChargeHub/build/CMakeFiles/EVChargeHub_autogen_timestamp_deps.dir
-/home/death/Desktop/EvChargeHub/build/CMakeFiles/EVChargeHub_autogen.dir
