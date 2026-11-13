@@ -21,7 +21,7 @@ add_executable(EVChargeHub
     src/models/Station.h
     src/models/ChargingPoint.h
     src/models/Vehicle.h
-
+    src/models/Customer.h
     # Database
     src/database/DatabaseManager.h
     src/database/DatabaseManager.cpp
@@ -34,6 +34,9 @@ add_executable(EVChargeHub
 
     src/database/VehicleRepository.cpp
     src/database/VehicleRepository.h
+
+    src/database/CustomerRepository.h
+
 
     # Main window
     src/ui/MainWindow.h
@@ -54,6 +57,9 @@ add_executable(EVChargeHub
 
     src/ui/pages/VehiclesPage.h
     src/ui/pages/VehiclesPage.cpp
+
+    
+
 )
 
 target_include_directories(EVChargeHub PRIVATE src)

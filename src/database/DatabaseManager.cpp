@@ -195,5 +195,26 @@ bool DatabaseManager::initialize(QString *error)
             return false;
         }
     }
+
+
+// Create customers table
+
+    if (!query.exec(R"(
+        CREATE TABLE IF NOT EXISTS customers (
+            customer_id INTEGER PRIMARY KEY AUTOINCREMENT,
+            full_name TEXT NOT NULL,
+            email TEXT NOT NULL UNIQUE,
+            phone TEXT NOT NULL,
+            address TEXT,
+            status TEXT NOT NULL DEFAULT 'ACTIVE'
+                CHECK(status IN ('ACTIVE', 'INACTIVE'))
+        )
+    )")) {
+        if (error) {
+            *error = query.lastError().text();
+        }
+        return false;
+    }
+
     return true;
 }
