@@ -148,8 +148,12 @@ void VehiclesPage::loadVehicles()
         table->setItem(row, 0,
             new QTableWidgetItem(QString::number(vehicle.vehicleId)));
 
-        table->setItem(row, 1,
-            new QTableWidgetItem(vehicle.ownerName));
+        QTableWidgetItem *ownerItem =
+            new QTableWidgetItem(vehicle.ownerName);
+
+        ownerItem->setData(Qt::UserRole, vehicle.customerId);
+
+        table->setItem(row, 1, ownerItem);
 
         table->setItem(row, 2,
             new QTableWidgetItem(vehicle.registrationNumber));

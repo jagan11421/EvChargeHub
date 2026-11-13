@@ -88,16 +88,18 @@ bool VehicleRepository::updateVehicle(const Vehicle &vehicle)
 
     query.prepare(
         "UPDATE vehicles SET "
+        "owner_name = :owner, "
         "registration_number = :reg, "
         "brand = :brand, "
         "model = :model, "
         "battery_capacity = :battery, "
         "connector_type = :connector, "
-        "status = :status "
-        "customer_id = :customer"
+        "status = :status, "
+        "customer_id = :customer "
         "WHERE vehicle_id = :id"
     );
 
+    query.bindValue(":owner", vehicle.ownerName);
     query.bindValue(":reg", vehicle.registrationNumber);
     query.bindValue(":brand", vehicle.brand);
     query.bindValue(":model", vehicle.model);
