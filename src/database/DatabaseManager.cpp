@@ -247,5 +247,45 @@ bool DatabaseManager::initialize(QString *error)
             return false;
         }
     }
+    if (!query.exec(R"(
+        CREATE TABLE IF NOT EXISTS bookings (
+            booking_id INTEGER PRIMARY KEY AUTOINCREMENT,
+
+            customer_id INTEGER NOT NULL,
+            vehicle_id INTEGER NOT NULL,
+            point_id INTEGER NOT NULL,
+
+            start_time TEXT NOT NULL,
+            end_time TEXT NOT NULL,
+
+            status TEXT NOT NULL DEFAULT 'PENDING'
+                CHECK(status IN (
+                    'PENDING',
+                    'CONFIRMED',
+                    'CANCELLED',
+                    'COMPLETED'
+                )),
+
+            created_at TEXT DEFAULT CURRENT_TIMESTAMP,
+
+            FOREIGN KEY (customer_id)
+                REFERENCES customers(customer_id)
+                ON DELETE RESTRICT,
+
+            FOREIGN KEY (vehicle_id)
+                REFERENCES vehicles(vehicle_id)
+                ON DELETE RESTRICT,
+
+            FOREIGN KEY (point_id)
+                REFERENCES charging_points(point_id)
+                ON DELETE RESTRICT,
+
+            CHECK (end_time > start_time)
+        )
+    )")) {
+        qDebug() << "Bookings table error:"
+                << query.lastError().text();
+        return false;
+    }
         return true;
 }

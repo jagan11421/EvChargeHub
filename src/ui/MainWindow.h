@@ -1,12 +1,12 @@
-
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
 #include <QMainWindow>
 
-class QStackedWidget;
-class QButtonGroup;
 class QPushButton;
+class QButtonGroup;
+class QStackedWidget;
+class BookingsPage;
 
 class MainWindow : public QMainWindow
 {
@@ -16,15 +16,17 @@ public:
     explicit MainWindow(QWidget *parent = nullptr);
 
 private:
-    QStackedWidget *pages;
     QButtonGroup *navGroup;
+    QStackedWidget *pages;
 
-    void setupUI();
+    BookingsPage *bookingsPage = nullptr;
 
     QPushButton* createNavButton(
         const QString &text,
         int index
     );
+
+    void setupUI();
 };
 
 #endif

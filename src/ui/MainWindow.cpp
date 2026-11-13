@@ -3,6 +3,11 @@
 
 #include "pages/DashboardPage.h"
 #include "pages/PlaceholderPage.h"
+#include "pages/StationsPage.h"
+#include "pages/ChargingPointsPage.h"
+#include "pages/VehiclesPage.h"
+#include "pages/CustomersPage.h"
+#include "pages/BookingsPage.h"
 
 #include <QWidget>
 #include <QHBoxLayout>
@@ -11,10 +16,7 @@
 #include <QLabel>
 #include <QStackedWidget>
 #include <QButtonGroup>
-#include "pages/StationsPage.h"
-#include "pages/ChargingPointsPage.h"
-#include "pages/VehiclesPage.h"
-#include "pages/CustomersPage.h"
+
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
 {
@@ -70,7 +72,6 @@ void MainWindow::setupUI()
 
     // Sidebar
     QWidget *sidebar = new QWidget;
-
     sidebar->setFixedWidth(230);
     sidebar->setStyleSheet("background: #111827;");
 
@@ -104,19 +105,18 @@ void MainWindow::setupUI()
     navGroup->setExclusive(true);
 
     QStringList menuItems = {
-    "Dashboard",
-    "Stations",
-    "Charging Points",
-    "Vehicles",
-    "Customers",
-    "Bookings",
-    "Charging Sessions",
-    "Payments",
-    "Reports"
+        "Dashboard",
+        "Stations",
+        "Charging Points",
+        "Vehicles",
+        "Customers",
+        "Bookings",
+        "Charging Sessions",
+        "Payments",
+        "Reports"
     };
 
-    for (int i = 0; i < menuItems.size(); i++)
-    {
+    for (int i = 0; i < menuItems.size(); i++) {
         QPushButton *button =
             createNavButton(menuItems[i], i);
 
@@ -128,27 +128,27 @@ void MainWindow::setupUI()
     // Page container
     pages = new QStackedWidget;
 
-    pages->addWidget(new DashboardPage());
+    pages->addWidget(new DashboardPage());       // 0
+    pages->addWidget(new StationsPage());        // 1
+    pages->addWidget(new ChargingPointsPage());  // 2
+    pages->addWidget(new VehiclesPage());        // 3
+    pages->addWidget(new CustomersPage());       // 4
 
-    pages->addWidget(new StationsPage());
-    pages->addWidget(new ChargingPointsPage());
-    pages->addWidget(new VehiclesPage());
-    pages->addWidget(new CustomersPage());
-    pages->addWidget(
-        new PlaceholderPage("Bookings")
-    );
+    // Bookings page - create only once
+    bookingsPage = new BookingsPage();
+    pages->addWidget(bookingsPage);              // 5
 
     pages->addWidget(
         new PlaceholderPage("Charging Sessions")
-    );
+    );                                            // 6
 
     pages->addWidget(
         new PlaceholderPage("Payments")
-    );
+    );                                            // 7
 
     pages->addWidget(
         new PlaceholderPage("Reports")
-    );
+    );                                            // 8
 
     // Navigation functionality
     connect(
