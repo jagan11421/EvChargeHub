@@ -12,6 +12,8 @@
 #include <QLineEdit>
 #include <QTableWidgetItem>
 #include <QStringList>
+#include "../../database/CustomerRepository.h"
+#include "../../models/Customer.h"
 VehiclesPage::VehiclesPage(QWidget *parent)
     : QWidget(parent)
 {
@@ -55,10 +57,10 @@ void VehiclesPage::setupUI()
     // Vehicle table
     table = new QTableWidget();
 
-    table->setColumnCount(7);
+    table->setColumnCount(8);
 
     table->setHorizontalHeaderLabels({
-       "ID",
+        "ID",
         "Owner Name",
         "Registration No.",
         "Brand",
@@ -179,25 +181,48 @@ void VehiclesPage::addVehicle()
 {
     Vehicle vehicle;
 
-    bool ok;
-    vehicle.ownerName = QInputDialog::getText(
-        this,
-        "Add Vehicle",
-        "Owner Name:",
-        QLineEdit::Normal,
-        "",
-        &ok
-    ).trimmed();
+    CustomerRepository customerRepository;
+    QList<Customer> customers = customerRepository.getAllCustomers();
 
-    if (!ok) return;
-
-    if (vehicle.ownerName.isEmpty()) {
+    if (customers.isEmpty()) {
         QMessageBox::warning(
-            this, "Invalid Input",
-            "Owner name is required."
+            this,
+            "No Customers",
+            "Please register a customer before adding a vehicle."
         );
         return;
     }
+
+    QStringList customerNames;
+
+    for (const Customer &customer : customers) {
+        customerNames.append(
+            customer.fullName + " (ID: " +
+            QString::number(customer.customerId) + ")"
+        );
+    }
+
+    bool ok = false;
+
+    QString selectedCustomer = QInputDialog::getItem(
+        this,
+        "Select Customer",
+        "Customer:",
+        customerNames,
+        0,
+        false,
+        &ok
+    );
+
+    if (!ok) return;
+
+    int customerIndex = customerNames.indexOf(selectedCustomer);
+
+    if (customerIndex < 0) return;
+
+    vehicle.customerId = customers[customerIndex].customerId;
+    vehicle.ownerName = customers[customerIndex].fullName;
+
     vehicle.registrationNumber = QInputDialog::getText(
         this, "Add Vehicle",
         "Registration Number:",
@@ -205,12 +230,6 @@ void VehiclesPage::addVehicle()
     ).trimmed().toUpper();
 
     if (!ok) return;
-
-    if (vehicle.registrationNumber.isEmpty()) {
-        QMessageBox::warning(this, "Invalid Input",
-                             "Registration number is required.");
-        return;
-    }
 
     vehicle.brand = QInputDialog::getText(
         this, "Add Vehicle", "Brand:",
@@ -235,10 +254,7 @@ void VehiclesPage::addVehicle()
     if (!ok) return;
 
     QStringList connectors = {
-        "TYPE1",
-        "TYPE2",
-        "CCS",
-        "CHADEMO"
+        "TYPE1", "TYPE2", "CCS", "CHADEMO"
     };
 
     vehicle.connectorType = QInputDialog::getItem(
@@ -255,23 +271,28 @@ void VehiclesPage::addVehicle()
 
     vehicle.status = "ACTIVE";
 
-    if (vehicle.brand.isEmpty() || vehicle.model.isEmpty()) {
+    if (vehicle.registrationNumber.isEmpty() ||
+        vehicle.brand.isEmpty() ||
+        vehicle.model.isEmpty()) {
+
         QMessageBox::warning(
             this, "Invalid Input",
-            "Brand and model are required."
+            "Registration, brand and model are required."
         );
         return;
     }
 
     if (repository.addVehicle(vehicle)) {
         QMessageBox::information(
-            this, "Success", "Vehicle added successfully."
+            this, "Success",
+            "Vehicle added successfully."
         );
 
         loadVehicles();
     } else {
         QMessageBox::critical(
-            this, "Database Error", repository.lastError()
+            this, "Database Error",
+            repository.lastError()
         );
     }
 }

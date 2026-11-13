@@ -17,7 +17,7 @@ QList<Vehicle> VehicleRepository::getAllVehicles()
 
     if (!query.exec(
         "SELECT vehicle_id, owner_name, registration_number, "
-        "brand, model, battery_capacity, connector_type, status "
+        "brand, model, battery_capacity, connector_type, status, customer_id "
         "FROM vehicles ORDER BY vehicle_id DESC")) {
 
         m_lastError = query.lastError().text();
@@ -35,6 +35,7 @@ QList<Vehicle> VehicleRepository::getAllVehicles()
         vehicle.batteryCapacity = query.value(5).toDouble();
         vehicle.connectorType = query.value(6).toString();
         vehicle.status = query.value(7).toString();
+        vehicle.customerId = query.value(8).toInt();
 
         vehicles.append(vehicle);
     }
@@ -54,9 +55,9 @@ bool VehicleRepository::addVehicle(const Vehicle &vehicle)
     query.prepare(
         "INSERT INTO vehicles "
         "(owner_name, registration_number, brand, model, "
-        "battery_capacity, connector_type, status) "
+        "battery_capacity, connector_type, status, customer_id) "
         "VALUES (:owner, :reg, :brand, :model, "
-        ":battery, :connector, :status)"
+        ":battery, :connector, :status, :customer)"
     );
 
     query.bindValue(":owner", vehicle.ownerName);
@@ -66,6 +67,7 @@ bool VehicleRepository::addVehicle(const Vehicle &vehicle)
     query.bindValue(":battery", vehicle.batteryCapacity);
     query.bindValue(":connector", vehicle.connectorType);
     query.bindValue(":status", vehicle.status);
+    query.bindValue(":customer", vehicle.customerId);
 
     if (!query.exec()) {
         m_lastError = query.lastError().text();
@@ -92,6 +94,7 @@ bool VehicleRepository::updateVehicle(const Vehicle &vehicle)
         "battery_capacity = :battery, "
         "connector_type = :connector, "
         "status = :status "
+        "customer_id = :customer"
         "WHERE vehicle_id = :id"
     );
 
@@ -101,7 +104,9 @@ bool VehicleRepository::updateVehicle(const Vehicle &vehicle)
     query.bindValue(":battery", vehicle.batteryCapacity);
     query.bindValue(":connector", vehicle.connectorType);
     query.bindValue(":status", vehicle.status);
+    query.bindValue(":customer", vehicle.customerId);
     query.bindValue(":id", vehicle.vehicleId);
+    
 
     if (!query.exec()) {
         m_lastError = query.lastError().text();

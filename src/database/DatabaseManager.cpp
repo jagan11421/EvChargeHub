@@ -216,5 +216,36 @@ bool DatabaseManager::initialize(QString *error)
         return false;
     }
 
-    return true;
+    // Add customer_id to existing vehicles table
+
+    bool hasCustomerId = false;
+
+    if (!query.exec("PRAGMA table_info(vehicles)")) {
+        if (error) {
+            *error = query.lastError().text();
+        }
+        return false;
+    }
+
+    while (query.next()) {
+        if (query.value(1).toString() == "customer_id") {
+            hasCustomerId = true;
+            break;
+        }
+    }
+
+    if (!hasCustomerId) {
+        if (!query.exec(
+            "ALTER TABLE vehicles "
+            "ADD COLUMN customer_id INTEGER "
+            "REFERENCES customers(customer_id) "
+            "ON DELETE RESTRICT"
+        )) {
+            if (error) {
+                *error = query.lastError().text();
+            }
+            return false;
+        }
+    }
+        return true;
 }
