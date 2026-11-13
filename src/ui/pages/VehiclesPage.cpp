@@ -313,93 +313,123 @@ void VehiclesPage::editVehicle()
         return;
     }
 
-    int vehicleId = table->item(row, 0)->text().toInt();
-
     Vehicle vehicle;
-    vehicle.vehicleId = vehicleId;
+    vehicle.vehicleId = table->item(row, 0)->text().toInt();
+
+    // Load customers
+    CustomerRepository customerRepository;
+    QList<Customer> customers = customerRepository.getAllCustomers();
+
+    if (customers.isEmpty()) {
+        QMessageBox::warning(
+            this, "No Customers",
+            "Please register a customer first."
+        );
+        return;
+    }
+
+    QStringList customerNames;
+    int selectedIndex = 0;
+
+    int existingCustomerId =
+        table->item(row, 1)->data(Qt::UserRole).toInt();
+
+    for (int i = 0; i < customers.size(); ++i) {
+        const Customer &customer = customers[i];
+
+        customerNames.append(
+            customer.fullName + " (ID: " +
+            QString::number(customer.customerId) + ")"
+        );
+
+        if (customer.customerId == existingCustomerId) {
+            selectedIndex = i;
+        }
+    }
 
     bool ok = false;
 
-    vehicle.ownerName = QInputDialog::getText(
-        this,
-        "Edit Vehicle",
-        "Owner Name:",
+    QString selectedCustomer = QInputDialog::getItem(
+        this, "Edit Vehicle",
+        "Select Customer:",
+        customerNames, selectedIndex, false, &ok
+    );
+
+    if (!ok) return;
+
+    int customerIndex = customerNames.indexOf(selectedCustomer);
+    if (customerIndex < 0) return;
+
+    vehicle.customerId = customers[customerIndex].customerId;
+    vehicle.ownerName = customers[customerIndex].fullName;
+
+    // Registration number
+    vehicle.registrationNumber = QInputDialog::getText(
+        this, "Edit Vehicle",
+        "Registration Number:",
         QLineEdit::Normal,
-        table->item(row, 1)->text(),
+        table->item(row, 2)->text(),
+        &ok
+    ).trimmed().toUpper();
+
+    if (!ok) return;
+
+    // Brand
+    vehicle.brand = QInputDialog::getText(
+        this, "Edit Vehicle",
+        "Brand:",
+        QLineEdit::Normal,
+        table->item(row, 3)->text(),
         &ok
     ).trimmed();
 
     if (!ok) return;
 
-    if (vehicle.ownerName.isEmpty()) {
-        QMessageBox::warning(
-            this, "Invalid Input", "Owner name is required.");
-        return;
-    }
-
-    vehicle.registrationNumber = QInputDialog::getText(
-        this, "Edit Vehicle",
-        "Registration Number:",
-        QLineEdit::Normal,
-        table->item(row, 1)->text(), &ok
-    ).trimmed().toUpper();
-
-    if (!ok) return;
-
-    vehicle.brand = QInputDialog::getText(
-        this, "Edit Vehicle", "Brand:",
-        QLineEdit::Normal,
-        table->item(row, 2)->text(), &ok
-    ).trimmed();
-
-    if (!ok) return;
-
+    // Model
     vehicle.model = QInputDialog::getText(
-        this, "Edit Vehicle", "Model:",
+        this, "Edit Vehicle",
+        "Model:",
         QLineEdit::Normal,
-        table->item(row, 3)->text(), &ok
+        table->item(row, 4)->text(),
+        &ok
     ).trimmed();
 
     if (!ok) return;
 
+    // Battery capacity
     vehicle.batteryCapacity = QInputDialog::getDouble(
         this, "Edit Vehicle",
         "Battery Capacity (kWh):",
-        table->item(row, 4)->text().toDouble(),
+        table->item(row, 5)->text().toDouble(),
         0.1, 1000.0, 1, &ok
     );
 
     if (!ok) return;
 
+    // Connector
     QStringList connectors = {
-        "TYPE1",
-        "TYPE2",
-        "CCS",
-        "CHADEMO"
+        "TYPE1", "TYPE2", "CCS", "CHADEMO"
     };
 
     int connectorIndex = connectors.indexOf(
-        table->item(row, 5)->text()
+        table->item(row, 6)->text()
     );
 
     if (connectorIndex < 0) connectorIndex = 0;
 
     vehicle.connectorType = QInputDialog::getItem(
-        this,
-        "Add Vehicle",
+        this, "Edit Vehicle",
         "Connector Type:",
-        connectors,
-        0,
-        false,
-        &ok
+        connectors, connectorIndex, false, &ok
     );
 
     if (!ok) return;
 
+    // Status
     QStringList statuses = {"ACTIVE", "INACTIVE"};
 
     int statusIndex = statuses.indexOf(
-        table->item(row, 6)->text()
+        table->item(row, 7)->text()
     );
 
     if (statusIndex < 0) statusIndex = 0;
@@ -415,6 +445,7 @@ void VehiclesPage::editVehicle()
     if (vehicle.registrationNumber.isEmpty() ||
         vehicle.brand.isEmpty() ||
         vehicle.model.isEmpty()) {
+
         QMessageBox::warning(
             this, "Invalid Input",
             "Registration, brand and model are required."
@@ -424,13 +455,14 @@ void VehiclesPage::editVehicle()
 
     if (repository.updateVehicle(vehicle)) {
         QMessageBox::information(
-            this, "Success", "Vehicle updated successfully."
+            this, "Success",
+            "Vehicle updated successfully."
         );
-
         loadVehicles();
     } else {
         QMessageBox::critical(
-            this, "Database Error", repository.lastError()
+            this, "Database Error",
+            repository.lastError()
         );
     }
 }
