@@ -13,6 +13,7 @@
 #include <QButtonGroup>
 #include "pages/StationsPage.h"
 #include "pages/ChargingPointsPage.h"
+#include "pages/VehiclesPage.h"
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
 {
@@ -125,13 +126,11 @@ void MainWindow::setupUI()
     // Page container
     pages = new QStackedWidget;
 
-    pages->addWidget(new DashboardPage);
+    pages->addWidget(new DashboardPage());
 
-    pages->addWidget(new StationsPage);
-    pages->addWidget(new ChargingPointsPage);
-    pages->addWidget(
-        new PlaceholderPage("Vehicles")
-    );
+    pages->addWidget(new StationsPage());
+    pages->addWidget(new ChargingPointsPage());
+    pages->addWidget(new VehiclesPage());
 
     pages->addWidget(
         new PlaceholderPage("Bookings")

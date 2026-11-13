@@ -144,5 +144,56 @@ bool DatabaseManager::initialize(QString *error)
             *error = vehicleQuery.lastError().text();
         return false;
     }
+    if (!query.exec(R"(
+        CREATE TABLE IF NOT EXISTS vehicles (
+            vehicle_id INTEGER PRIMARY KEY AUTOINCREMENT,
+            registration_number TEXT NOT NULL UNIQUE,
+            brand TEXT NOT NULL,
+            model TEXT NOT NULL,
+            battery_capacity REAL NOT NULL
+                CHECK(battery_capacity > 0),
+            connector_type TEXT NOT NULL,
+            status TEXT NOT NULL DEFAULT 'ACTIVE'
+                CHECK(status IN ('ACTIVE', 'INACTIVE'))
+        )
+    )")) {
+        if (error) {
+            *error = query.lastError().text();
+        }
+        return false;
+    }
+    // Migration: Add status column to existing vehicles table
+
+    bool hasStatusColumn = false;
+
+    if (query.exec("PRAGMA table_info(vehicles)")) {
+
+        while (query.next()) {
+            if (query.value(1).toString() == "status") {
+                hasStatusColumn = true;
+                break;
+            }
+        }
+
+    } else {
+        if (error) {
+            *error = query.lastError().text();
+        }
+        return false;
+    }
+
+    if (!hasStatusColumn) {
+
+        if (!query.exec(
+            "ALTER TABLE vehicles "
+            "ADD COLUMN status TEXT NOT NULL DEFAULT 'ACTIVE' "
+            "CHECK(status IN ('ACTIVE', 'INACTIVE'))"
+        )) {
+            if (error) {
+                *error = query.lastError().text();
+            }
+            return false;
+        }
+    }
     return true;
 }
