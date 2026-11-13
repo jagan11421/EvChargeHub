@@ -58,7 +58,8 @@ void VehiclesPage::setupUI()
     table->setColumnCount(7);
 
     table->setHorizontalHeaderLabels({
-        "ID",
+       "ID",
+        "Owner Name",
         "Registration No.",
         "Brand",
         "Model",
@@ -129,6 +130,7 @@ void VehiclesPage::setupUI()
             this, &VehiclesPage::searchVehicles);
 }
 
+
 void VehiclesPage::loadVehicles()
 {
     searchInput->clear();
@@ -139,37 +141,37 @@ void VehiclesPage::loadVehicles()
 
     for (const Vehicle &vehicle : vehicles) {
         int row = table->rowCount();
-
         table->insertRow(row);
 
         table->setItem(row, 0,
             new QTableWidgetItem(QString::number(vehicle.vehicleId)));
 
         table->setItem(row, 1,
-            new QTableWidgetItem(vehicle.registrationNumber));
+            new QTableWidgetItem(vehicle.ownerName));
 
         table->setItem(row, 2,
-            new QTableWidgetItem(vehicle.brand));
+            new QTableWidgetItem(vehicle.registrationNumber));
 
         table->setItem(row, 3,
-            new QTableWidgetItem(vehicle.model));
+            new QTableWidgetItem(vehicle.brand));
 
         table->setItem(row, 4,
-            new QTableWidgetItem(
-                QString::number(vehicle.batteryCapacity, 'f', 1)
-            ));
+            new QTableWidgetItem(vehicle.model));
 
         table->setItem(row, 5,
-            new QTableWidgetItem(vehicle.connectorType));
+            new QTableWidgetItem(
+                QString::number(vehicle.batteryCapacity, 'f', 1)));
 
         table->setItem(row, 6,
+            new QTableWidgetItem(vehicle.connectorType));
+
+        table->setItem(row, 7,
             new QTableWidgetItem(vehicle.status));
     }
 
     if (!repository.lastError().isEmpty()) {
         QMessageBox::warning(
-            this, "Database Error", repository.lastError()
-        );
+            this, "Database Error", repository.lastError());
     }
 }
 
@@ -291,7 +293,24 @@ void VehiclesPage::editVehicle()
     Vehicle vehicle;
     vehicle.vehicleId = vehicleId;
 
-    bool ok;
+    bool ok = false;
+
+    vehicle.ownerName = QInputDialog::getText(
+        this,
+        "Edit Vehicle",
+        "Owner Name:",
+        QLineEdit::Normal,
+        table->item(row, 1)->text(),
+        &ok
+    ).trimmed();
+
+    if (!ok) return;
+
+    if (vehicle.ownerName.isEmpty()) {
+        QMessageBox::warning(
+            this, "Invalid Input", "Owner name is required.");
+        return;
+    }
 
     vehicle.registrationNumber = QInputDialog::getText(
         this, "Edit Vehicle",
@@ -454,25 +473,27 @@ void VehiclesPage::searchVehicles()
 
         table->setItem(row, 0,
             new QTableWidgetItem(QString::number(vehicle.vehicleId)));
-
         table->setItem(row, 1,
+            new QTableWidgetItem(vehicle.ownerName));
+        table->setItem(row, 2,
             new QTableWidgetItem(vehicle.registrationNumber));
 
-        table->setItem(row, 2,
+        table->setItem(row, 3,
             new QTableWidgetItem(vehicle.brand));
 
-        table->setItem(row, 3,
+        table->setItem(row, 4,
             new QTableWidgetItem(vehicle.model));
 
-        table->setItem(row, 4,
+        table->setItem(row, 5,
             new QTableWidgetItem(
                 QString::number(vehicle.batteryCapacity, 'f', 1)
             ));
 
-        table->setItem(row, 5,
+        table->setItem(row, 6,
             new QTableWidgetItem(vehicle.connectorType));
 
-        table->setItem(row, 6,
+        table->setItem(row, 7,
             new QTableWidgetItem(vehicle.status));
+        
     }
 }
