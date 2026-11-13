@@ -14,6 +14,7 @@
 #include "pages/StationsPage.h"
 #include "pages/ChargingPointsPage.h"
 #include "pages/VehiclesPage.h"
+#include "pages/CustomersPage.h"
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
 {
@@ -107,6 +108,7 @@ void MainWindow::setupUI()
     "Stations",
     "Charging Points",
     "Vehicles",
+    "Customers",
     "Bookings",
     "Charging Sessions",
     "Payments",
@@ -131,7 +133,7 @@ void MainWindow::setupUI()
     pages->addWidget(new StationsPage());
     pages->addWidget(new ChargingPointsPage());
     pages->addWidget(new VehiclesPage());
-
+    pages->addWidget(new CustomersPage());
     pages->addWidget(
         new PlaceholderPage("Bookings")
     );

@@ -36,6 +36,7 @@ add_executable(EVChargeHub
     src/database/VehicleRepository.h
 
     src/database/CustomerRepository.h
+    src/database/CustomerRepository.cpp
 
 
     # Main window
@@ -58,6 +59,8 @@ add_executable(EVChargeHub
     src/ui/pages/VehiclesPage.h
     src/ui/pages/VehiclesPage.cpp
 
+    src/ui/pages/CustomersPage.h
+    src/ui/pages/CustomersPage.cpp
     
 
 )
