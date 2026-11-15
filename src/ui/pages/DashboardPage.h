@@ -6,7 +6,7 @@
 
 class QLabel;
 class QTableWidget;
-
+class QChartView;
 class DashboardPage : public QWidget
 {
     Q_OBJECT
@@ -27,6 +27,10 @@ private:
     void setupUI();
     void loadDashboardData();
     void loadRecentBookings();
+    QChartView *revenueChartView;
+    QChartView *sessionChartView;
+
+    void loadCharts();
 };
 
 #endif

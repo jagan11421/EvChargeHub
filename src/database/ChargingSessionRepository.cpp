@@ -1,3 +1,4 @@
+
 #include "ChargingSessionRepository.h"
 
 #include <QSqlDatabase>
@@ -58,18 +59,23 @@ ChargingSessionRepository::getAllSessions()
 }
 
 
+// =====================================
+// START CHARGING SESSION
+// =====================================
+
 bool ChargingSessionRepository::startSession(int bookingId)
 {
     QSqlDatabase db =
         QSqlDatabase::database("evchargehub_connection");
-
-    QSqlQuery query(db);
 
     if (!db.transaction()) {
         m_lastError = db.lastError().text();
         return false;
     }
 
+    QSqlQuery query(db);
+
+    // 1. Get booking information
     query.prepare(
         "SELECT customer_id, vehicle_id, point_id, status "
         "FROM bookings "
@@ -90,16 +96,20 @@ bool ChargingSessionRepository::startSession(int bookingId)
     int customerId = query.value(0).toInt();
     int vehicleId = query.value(1).toInt();
     int pointId = query.value(2).toInt();
+
     QString bookingStatus = query.value(3).toString();
 
     if (bookingStatus != "PENDING" &&
         bookingStatus != "CONFIRMED") {
 
-        m_lastError = "This booking cannot start a charging session.";
+        m_lastError =
+            "This booking cannot start a charging session.";
+
         db.rollback();
         return false;
     }
 
+    // 2. Check whether session already exists
     query.prepare(
         "SELECT COUNT(*) FROM charging_sessions "
         "WHERE booking_id = :booking"
@@ -114,11 +124,41 @@ bool ChargingSessionRepository::startSession(int bookingId)
     }
 
     if (query.value(0).toInt() > 0) {
-        m_lastError = "A session already exists for this booking.";
+        m_lastError =
+            "A session already exists for this booking.";
+
         db.rollback();
         return false;
     }
 
+    // 3. Check charging point availability
+    query.prepare(
+        "SELECT status FROM charging_points "
+        "WHERE point_id = :point"
+    );
+
+    query.bindValue(":point", pointId);
+
+    if (!query.exec() || !query.next()) {
+        m_lastError = query.lastError().text().isEmpty()
+            ? "Charging point not found."
+            : query.lastError().text();
+
+        db.rollback();
+        return false;
+    }
+
+    QString pointStatus = query.value(0).toString();
+
+    if (pointStatus != "AVAILABLE") {
+        m_lastError =
+            "This charging point is not available.";
+
+        db.rollback();
+        return false;
+    }
+
+    // 4. Check for another active session on this point
     query.prepare(
         "SELECT COUNT(*) FROM charging_sessions "
         "WHERE point_id = :point "
@@ -134,11 +174,33 @@ bool ChargingSessionRepository::startSession(int bookingId)
     }
 
     if (query.value(0).toInt() > 0) {
-        m_lastError = "This charging point is already in use.";
+        m_lastError =
+            "This charging point is already in use.";
+
         db.rollback();
         return false;
     }
 
+    // 5. Reserve the charging point
+    query.prepare(
+        "UPDATE charging_points "
+        "SET status = 'OCCUPIED' "
+        "WHERE point_id = :point "
+        "AND status = 'AVAILABLE'"
+    );
+
+    query.bindValue(":point", pointId);
+
+    if (!query.exec() || query.numRowsAffected() != 1) {
+        m_lastError = query.lastError().text().isEmpty()
+            ? "Unable to reserve charging point."
+            : query.lastError().text();
+
+        db.rollback();
+        return false;
+    }
+
+    // 6. Insert charging session
     query.prepare(
         "INSERT INTO charging_sessions "
         "(booking_id, customer_id, vehicle_id, point_id, "
@@ -151,6 +213,7 @@ bool ChargingSessionRepository::startSession(int bookingId)
     query.bindValue(":customer", customerId);
     query.bindValue(":vehicle", vehicleId);
     query.bindValue(":point", pointId);
+
     query.bindValue(
         ":start",
         QDateTime::currentDateTime().toString(Qt::ISODate)
@@ -162,6 +225,25 @@ bool ChargingSessionRepository::startSession(int bookingId)
         return false;
     }
 
+    // 7. Confirm booking
+    query.prepare(
+        "UPDATE bookings "
+        "SET status = 'CONFIRMED' "
+        "WHERE booking_id = :booking"
+    );
+
+    query.bindValue(":booking", bookingId);
+
+    if (!query.exec() || query.numRowsAffected() != 1) {
+        m_lastError = query.lastError().text().isEmpty()
+            ? "Unable to confirm booking."
+            : query.lastError().text();
+
+        db.rollback();
+        return false;
+    }
+
+    // 8. Commit all changes
     if (!db.commit()) {
         m_lastError = db.lastError().text();
         db.rollback();
@@ -173,12 +255,17 @@ bool ChargingSessionRepository::startSession(int bookingId)
 }
 
 
+// =====================================
+// COMPLETE CHARGING SESSION
+// =====================================
+
 bool ChargingSessionRepository::completeSession(
     int sessionId,
     double energyConsumed)
 {
     if (energyConsumed < 0) {
-        m_lastError = "Energy consumed cannot be negative.";
+        m_lastError =
+            "Energy consumed cannot be negative.";
         return false;
     }
 
@@ -192,8 +279,9 @@ bool ChargingSessionRepository::completeSession(
 
     QSqlQuery query(db);
 
+    // 1. Get session information
     query.prepare(
-        "SELECT point_id, status "
+        "SELECT point_id, booking_id, status "
         "FROM charging_sessions "
         "WHERE session_id = :id"
     );
@@ -210,14 +298,19 @@ bool ChargingSessionRepository::completeSession(
     }
 
     int pointId = query.value(0).toInt();
-    QString status = query.value(1).toString();
+    int bookingId = query.value(1).toInt();
+
+    QString status = query.value(2).toString();
 
     if (status != "IN_PROGRESS") {
-        m_lastError = "Only an in-progress session can be completed.";
+        m_lastError =
+            "Only an in-progress session can be completed.";
+
         db.rollback();
         return false;
     }
 
+    // 2. Get charging point price
     query.prepare(
         "SELECT price_per_kwh "
         "FROM charging_points "
@@ -236,8 +329,10 @@ bool ChargingSessionRepository::completeSession(
     }
 
     double pricePerKwh = query.value(0).toDouble();
+
     double totalCost = energyConsumed * pricePerKwh;
 
+    // 3. Complete charging session
     query.prepare(
         "UPDATE charging_sessions SET "
         "end_time = :end, "
@@ -266,6 +361,43 @@ bool ChargingSessionRepository::completeSession(
         return false;
     }
 
+    // 4. Complete booking
+    query.prepare(
+        "UPDATE bookings "
+        "SET status = 'COMPLETED' "
+        "WHERE booking_id = :booking"
+    );
+
+    query.bindValue(":booking", bookingId);
+
+    if (!query.exec() || query.numRowsAffected() != 1) {
+        m_lastError = query.lastError().text().isEmpty()
+            ? "Unable to complete booking."
+            : query.lastError().text();
+
+        db.rollback();
+        return false;
+    }
+
+    // 5. Release charging point
+    query.prepare(
+        "UPDATE charging_points "
+        "SET status = 'AVAILABLE' "
+        "WHERE point_id = :point"
+    );
+
+    query.bindValue(":point", pointId);
+
+    if (!query.exec() || query.numRowsAffected() != 1) {
+        m_lastError = query.lastError().text().isEmpty()
+            ? "Unable to release charging point."
+            : query.lastError().text();
+
+        db.rollback();
+        return false;
+    }
+
+    // 6. Commit transaction
     if (!db.commit()) {
         m_lastError = db.lastError().text();
         db.rollback();
@@ -277,13 +409,54 @@ bool ChargingSessionRepository::completeSession(
 }
 
 
+// =====================================
+// CANCEL CHARGING SESSION
+// =====================================
+
 bool ChargingSessionRepository::cancelSession(int sessionId)
 {
     QSqlDatabase db =
         QSqlDatabase::database("evchargehub_connection");
 
+    if (!db.transaction()) {
+        m_lastError = db.lastError().text();
+        return false;
+    }
+
     QSqlQuery query(db);
 
+    // 1. Get session information
+    query.prepare(
+        "SELECT point_id, booking_id, status "
+        "FROM charging_sessions "
+        "WHERE session_id = :id"
+    );
+
+    query.bindValue(":id", sessionId);
+
+    if (!query.exec() || !query.next()) {
+        m_lastError = query.lastError().text().isEmpty()
+            ? "Charging session not found."
+            : query.lastError().text();
+
+        db.rollback();
+        return false;
+    }
+
+    int pointId = query.value(0).toInt();
+    int bookingId = query.value(1).toInt();
+
+    QString status = query.value(2).toString();
+
+    if (status != "IN_PROGRESS") {
+        m_lastError =
+            "Only an in-progress session can be cancelled.";
+
+        db.rollback();
+        return false;
+    }
+
+    // 2. Cancel charging session
     query.prepare(
         "UPDATE charging_sessions "
         "SET status = 'CANCELLED', "
@@ -299,13 +472,55 @@ bool ChargingSessionRepository::cancelSession(int sessionId)
 
     query.bindValue(":id", sessionId);
 
-    if (!query.exec()) {
-        m_lastError = query.lastError().text();
+    if (!query.exec() || query.numRowsAffected() != 1) {
+        m_lastError = query.lastError().text().isEmpty()
+            ? "Unable to cancel charging session."
+            : query.lastError().text();
+
+        db.rollback();
         return false;
     }
 
-    if (query.numRowsAffected() != 1) {
-        m_lastError = "Session not found or is no longer in progress.";
+    // 3. Cancel booking
+    query.prepare(
+        "UPDATE bookings "
+        "SET status = 'CANCELLED' "
+        "WHERE booking_id = :booking"
+    );
+
+    query.bindValue(":booking", bookingId);
+
+    if (!query.exec() || query.numRowsAffected() != 1) {
+        m_lastError = query.lastError().text().isEmpty()
+            ? "Unable to cancel booking."
+            : query.lastError().text();
+
+        db.rollback();
+        return false;
+    }
+
+    // 4. Release charging point
+    query.prepare(
+        "UPDATE charging_points "
+        "SET status = 'AVAILABLE' "
+        "WHERE point_id = :point"
+    );
+
+    query.bindValue(":point", pointId);
+
+    if (!query.exec() || query.numRowsAffected() != 1) {
+        m_lastError = query.lastError().text().isEmpty()
+            ? "Unable to release charging point."
+            : query.lastError().text();
+
+        db.rollback();
+        return false;
+    }
+
+    // 5. Commit transaction
+    if (!db.commit()) {
+        m_lastError = db.lastError().text();
+        db.rollback();
         return false;
     }
 
@@ -313,6 +528,10 @@ bool ChargingSessionRepository::cancelSession(int sessionId)
     return true;
 }
 
+
+// =====================================
+// LAST ERROR
+// =====================================
 
 QString ChargingSessionRepository::lastError() const
 {
