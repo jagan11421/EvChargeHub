@@ -46,6 +46,8 @@ add_executable(EVChargeHub
     src/database/ChargingSessionRepository.h
     src/database/ChargingSessionRepository.cpp
 
+    src/database/PaymentRepository.h
+    src/database/PaymentRepository.cpp
     # Main window
     src/ui/MainWindow.h
     src/ui/MainWindow.cpp
@@ -74,6 +76,9 @@ add_executable(EVChargeHub
     
     src/ui/pages/ChargingSessionsPage.h
     src/ui/pages/ChargingSessionsPage.cpp
+    
+    src/ui/pages/PaymentsPage.h
+    src/ui/pages/PaymentsPage.cpp
 
 )
 

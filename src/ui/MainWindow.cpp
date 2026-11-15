@@ -17,6 +17,7 @@
 #include <QStackedWidget>
 #include <QButtonGroup>
 #include "pages/ChargingSessionsPage.h"
+#include "pages/PaymentsPage.h"
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
 {
@@ -138,10 +139,7 @@ void MainWindow::setupUI()
     bookingsPage = new BookingsPage();
     pages->addWidget(bookingsPage);              // 5
     pages->addWidget(new ChargingSessionsPage());                                           // 6
-
-    pages->addWidget(
-        new PlaceholderPage("Payments")
-    );                                            // 7
+    pages->addWidget(new PaymentsPage());                                          // 7
 
     pages->addWidget(
         new PlaceholderPage("Reports")

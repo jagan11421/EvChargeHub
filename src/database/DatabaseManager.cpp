@@ -338,5 +338,33 @@ bool DatabaseManager::initialize(QString *error)
                 << query.lastError().text();
         return false;
     }
+    query.exec(R"(
+        CREATE TABLE IF NOT EXISTS payments (
+            payment_id INTEGER PRIMARY KEY AUTOINCREMENT,
+
+            session_id INTEGER NOT NULL UNIQUE,
+            customer_id INTEGER NOT NULL,
+
+            amount REAL NOT NULL CHECK(amount >= 0),
+
+            payment_method TEXT NOT NULL
+                CHECK(payment_method IN ('CASH', 'CARD', 'UPI')),
+
+            status TEXT NOT NULL DEFAULT 'PENDING'
+                CHECK(status IN ('PENDING', 'PAID', 'FAILED', 'REFUNDED')),
+
+            paid_at TEXT,
+
+            created_at TEXT DEFAULT CURRENT_TIMESTAMP,
+
+            FOREIGN KEY(session_id)
+                REFERENCES charging_sessions(session_id)
+                ON DELETE RESTRICT,
+
+            FOREIGN KEY(customer_id)
+                REFERENCES customers(customer_id)
+                ON DELETE RESTRICT
+        )
+    )");
         return true;
 }

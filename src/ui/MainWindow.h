@@ -8,6 +8,7 @@ class QButtonGroup;
 class QStackedWidget;
 class BookingsPage;
 class ChargingSessionsPage;
+class PaymentsPage;
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
