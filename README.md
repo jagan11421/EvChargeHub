@@ -149,13 +149,10 @@ Use a Qt kit compatible with your installed Visual Studio compiler.
 Open PowerShell or Command Prompt:
 
 ```powershell
-git clone https://github.com/YOUR_USERNAME/EVChargeHub.git
+git clone https://github.com/jagan11421/EvChargeHub.git
 
 cd EVChargeHub
 ```
-
-Replace `YOUR_USERNAME` with the GitHub repository owner's username.
-
 ### Step 3: Configure the project
 
 Open **Developer PowerShell for VS 2022**.
@@ -228,7 +225,7 @@ brew --prefix qt
 ### Step 2: Clone the repository
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/EVChargeHub.git
+git clone https://github.com/jagan11421/EvChargeHub.git
 
 cd EVChargeHub
 ```
@@ -279,7 +276,7 @@ sudo apt install -y \
 ### Step 2: Clone the repository
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/EVChargeHub.git
+git clone https://github.com/jagan11421/EvChargeHub.git
 
 cd EVChargeHub
 ```
@@ -420,4 +417,4 @@ Developed as a C++ and Qt-based desktop application project.
 
 ---
 
-# 📄 License
+
