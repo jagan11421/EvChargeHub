@@ -122,6 +122,14 @@ void BookingsPage::loadBookings()
 {
     searchInput->clear();
 
+    if (!repository.completeExpiredBookings()) {
+        QMessageBox::warning(
+            this,
+            "Database Error",
+            repository.lastError()
+        );
+    }
+
     QList<Booking> bookings = repository.getAllBookings();
 
     table->setRowCount(0);

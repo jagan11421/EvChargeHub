@@ -287,5 +287,56 @@ bool DatabaseManager::initialize(QString *error)
                 << query.lastError().text();
         return false;
     }
+    if (!query.exec(R"(
+        CREATE TABLE IF NOT EXISTS charging_sessions (
+            session_id INTEGER PRIMARY KEY AUTOINCREMENT,
+
+            booking_id INTEGER NOT NULL UNIQUE,
+            customer_id INTEGER NOT NULL,
+            vehicle_id INTEGER NOT NULL,
+            point_id INTEGER NOT NULL,
+
+            start_time TEXT NOT NULL,
+            end_time TEXT,
+
+            energy_consumed REAL NOT NULL DEFAULT 0
+                CHECK(energy_consumed >= 0),
+
+            cost REAL NOT NULL DEFAULT 0
+                CHECK(cost >= 0),
+
+            status TEXT NOT NULL DEFAULT 'IN_PROGRESS'
+                CHECK(status IN (
+                    'IN_PROGRESS',
+                    'COMPLETED',
+                    'CANCELLED'
+                )),
+
+            FOREIGN KEY (booking_id)
+                REFERENCES bookings(booking_id)
+                ON DELETE RESTRICT,
+
+            FOREIGN KEY (customer_id)
+                REFERENCES customers(customer_id)
+                ON DELETE RESTRICT,
+
+            FOREIGN KEY (vehicle_id)
+                REFERENCES vehicles(vehicle_id)
+                ON DELETE RESTRICT,
+
+            FOREIGN KEY (point_id)
+                REFERENCES charging_points(point_id)
+                ON DELETE RESTRICT,
+
+            CHECK (
+                end_time IS NULL OR
+                datetime(end_time) >= datetime(start_time)
+            )
+        )
+    )")) {
+        qDebug() << "Charging sessions table error:"
+                << query.lastError().text();
+        return false;
+    }
         return true;
 }

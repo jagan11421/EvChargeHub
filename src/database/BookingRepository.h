@@ -18,7 +18,7 @@ public:
         const QDateTime &endTime,
         int excludeBookingId = 0
     );
-
+    bool completeExpiredBookings();
     QString lastError() const;
 
 private:

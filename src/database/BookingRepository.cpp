@@ -188,7 +188,28 @@ bool BookingRepository::isTimeSlotAvailable(
     m_lastError = "Unable to check charging point availability.";
     return false;
 }
+bool BookingRepository::completeExpiredBookings()
+{
+    QSqlDatabase db =
+        QSqlDatabase::database("evchargehub_connection");
 
+    QSqlQuery query(db);
+
+    query.prepare(
+        "UPDATE bookings "
+        "SET status = 'COMPLETED' "
+        "WHERE status IN ('PENDING', 'CONFIRMED') "
+        "AND datetime(end_time) <= datetime('now', 'localtime')"
+    );
+
+    if (!query.exec()) {
+        m_lastError = query.lastError().text();
+        return false;
+    }
+
+    m_lastError.clear();
+    return true;
+}
 QString BookingRepository::lastError() const
 {
     return m_lastError;

@@ -7,7 +7,7 @@ class QPushButton;
 class QButtonGroup;
 class QStackedWidget;
 class BookingsPage;
-
+class ChargingSessionsPage;
 class MainWindow : public QMainWindow
 {
     Q_OBJECT

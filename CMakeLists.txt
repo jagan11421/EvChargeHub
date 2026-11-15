@@ -23,6 +23,7 @@ add_executable(EVChargeHub
     src/models/Vehicle.h
     src/models/Customer.h
     src/models/Booking.h
+    src/models/ChargingSession.h
     # Database
     src/database/DatabaseManager.h
     src/database/DatabaseManager.cpp
@@ -41,6 +42,9 @@ add_executable(EVChargeHub
 
     src/database/BookingRepository.h
     src/database/BookingRepository.cpp
+
+    src/database/ChargingSessionRepository.h
+    src/database/ChargingSessionRepository.cpp
 
     # Main window
     src/ui/MainWindow.h
@@ -68,6 +72,8 @@ add_executable(EVChargeHub
     src/ui/pages/BookingsPage.h
     src/ui/pages/BookingsPage.cpp
     
+    src/ui/pages/ChargingSessionsPage.h
+    src/ui/pages/ChargingSessionsPage.cpp
 
 )
 
