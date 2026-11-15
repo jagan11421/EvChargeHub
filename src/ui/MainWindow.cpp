@@ -18,6 +18,7 @@
 #include <QButtonGroup>
 #include "pages/ChargingSessionsPage.h"
 #include "pages/PaymentsPage.h"
+#include "pages/ReportsPage.h"
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
 {
@@ -140,10 +141,7 @@ void MainWindow::setupUI()
     pages->addWidget(bookingsPage);              // 5
     pages->addWidget(new ChargingSessionsPage());                                           // 6
     pages->addWidget(new PaymentsPage());                                          // 7
-
-    pages->addWidget(
-        new PlaceholderPage("Reports")
-    );                                            // 8
+    pages->addWidget(new ReportsPage());                                            // 8
 
     // Navigation functionality
     connect(

@@ -11,6 +11,8 @@ set(CMAKE_AUTOMOC ON)
 find_package(Qt6 REQUIRED COMPONENTS
     Widgets
     Sql
+    Charts
+
 )
 
 add_executable(EVChargeHub
@@ -76,10 +78,12 @@ add_executable(EVChargeHub
     
     src/ui/pages/ChargingSessionsPage.h
     src/ui/pages/ChargingSessionsPage.cpp
-    
+
     src/ui/pages/PaymentsPage.h
     src/ui/pages/PaymentsPage.cpp
 
+    src/ui/pages/ReportsPage.h
+    src/ui/pages/ReportsPage.cpp
 )
 
 target_include_directories(EVChargeHub PRIVATE src)
@@ -87,4 +91,5 @@ target_include_directories(EVChargeHub PRIVATE src)
 target_link_libraries(EVChargeHub PRIVATE
     Qt6::Widgets
     Qt6::Sql
+    Qt6::Charts
 )
